@@ -1,0 +1,565 @@
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1480px)
+	/**/
+	.text-button--lg
+		font-size: 14px
+	.label 
+		font-size: 13px
+	.text-button svg 
+		margin-left: 4px
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1390px)
+	/**/
+	.label
+		font-size: 12px
+	.text-button--lg 
+		font-size: 12px
+	.label 
+		padding: 6px 10px
+	.text-button--lg
+		svg 
+			max-width: 10px
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1300px)
+	/**/
+
+	//start global style
+	.headline--md
+		font-size: 50px
+	.text 
+		font-size: 22px
+	//end global style
+
+	
+
+	
+
+	
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1260px)
+	/**/
+	
+	//start header style
+	.logo 
+		img 
+			width: 150px
+	//end header style
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	/**/
+
+	//start global style
+	.headline--md
+		font-size: 42px
+	.text 
+		font-size: 18px
+	.text-button--lg
+		font-size: 16px
+		svg 
+			width: 20px
+			max-width: 20px
+			transform: rotate(45deg)
+			margin-left: 8px
+	//end global style
+	
+
+	//start header style
+	.menu li
+		margin-left: 10px 
+		margin-right: 10px
+		a 
+			font-size: 16px
+	.logo 
+		img 
+			width: 150px
+	//end header style
+
+	//start vacancies style 
+	.vacancie-card__footer
+		flex-direction: column
+		align-items: flex-start
+	.vacancie-card .text-button--lg
+		margin-top: 16px
+	//end vacancis style
+
+	//start cta style 
+	.cta__text-wrapper
+		max-width: 55%
+	//end cta style
+
+	//start footer style 
+	.footer__social-item 
+		margin-left: 8px
+	.footer-bottom-link
+		margin-left: 8px 
+		margin-right: 8px
+
+	//end footer style
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1100px)
+	/**/
+	.footer__bottom
+		.container
+			flex-direction: column-reverse
+	.footer__social
+		margin-bottom: 24px
+	.copy 
+		margin-top: 24px
+	.footer__content
+		.container 
+			flex-direction: column-reverse
+	.footer__contacts
+		text-align: left
+	.footer__contact-item
+		justify-content: flex-start
+	.footer__contacts
+		margin-bottom: 32px
+	.footer__menu
+		justify-content: space-between
+	.footer__menu-col
+		margin-right: 10px
+
+
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	/**/
+
+	//start header style
+	.menu
+		display: none
+	.menu-row
+		width: 25px 
+		height: 3px 
+		background: $yellow 
+		border-radius: 5px
+		margin-bottom: 5px
+	.menu-row:last-child 
+		margin-bottom: 0
+	.menu-btn
+		cursor: pointer
+	.header__right .button 
+		display: none
+	.header 
+		padding-top: 15px 
+		padding-bottom: 15px
+		.container 
+			display: flex 
+			justify-content: flex-end
+			align-items: center
+	.header__right
+		order: 2
+	.menu-btn
+		order: 3
+	.logo 
+		order: 1
+		position: absolute 
+		left: 5vw
+		top: 50% 
+		transform: translateY(-50%)
+	.header.active
+		background: #fff	
+		.menu
+			position: absolute
+			top: 100% 
+			left: 0 
+			background: #fff
+			display: flex
+			justify-content: space-between
+			box-shadow: inset 0 5px 10px rgba(187, 187, 187, 0.15)
+			padding-top: 50px
+			text-align: center
+			padding-bottom: 32px
+			a 
+				color: $black
+				font-size: 18px
+			a:hover:after
+				display: none
+			a.active 
+				color: $yellow
+			li 
+				margin-bottom: 28px
+
+		.search svg 
+			stroke: $black
+		.logo-white
+			display: none
+		.logo-black
+			display: block
+		.menu-mobile
+			display: block
+		.menu 
+			width: 100vw
+			height: calc(100vh - 60px)
+			padding-left: 5vw 
+			padding-right: 5vw
+			display: flex 
+			flex-direction: column
+			justify-content: space-between
+			overflow-x: hidden
+			overflow-y: auto
+			max-width: 100%
+			ul 
+				display: flex 
+				flex-direction: column
+		.menu-row:last-child 
+			display: none
+		.menu-row:first-child
+			transform: rotate(45deg)
+			margin-bottom: 0 
+			position: relative
+			top: 3px
+		.menu-row:nth-child(2)
+			transform: rotate(-45deg)
+	.menu-row
+		transition: all 0.3s
+	.header-social
+		display: flex 
+		justify-content: center 
+		align-items: center
+		margin-bottom: 32px
+		a 
+			display: block 
+			margin-left: 10px 
+			margin-right: 10px
+	.menu-mobile
+		border-top: 1px solid #EBF0F9
+		padding-top: 32px
+		margin-top: 32px
+		margin-left: 5vw 
+		margin-right: 5vw
+	.menu-mobile__item
+		display: flex 
+		justify-content: center 
+		align-items: center
+		margin-bottom: 10px
+		img 
+			display: block
+			margin-right: 8px
+	.header.active .menu .header-mobile-button
+		width: 100%
+		.button 
+			width: 100%
+			color: #fff
+			font-size: 14px
+	.menu-mobile__contact
+		padding-bottom: 32px
+	.menu-mobile
+		width: 100%
+	.header
+		height: 70px 
+		padding-top: 5px 
+		padding-bottom: 5px 
+		display: flex 
+		align-items: center
+	//end header style
+
+	//start contentn style 
+	.content
+		padding-top: 64px 
+		padding-bottom: 64px
+	//end content style
+
+	//start about style 
+	.about__image 
+		position: static
+		transform: translateY(0)
+		width: 95vw 
+		align-self: flex-start
+	.about 
+		flex-direction: column-reverse
+	.about__content
+		width: 100%
+	.about__content
+		margin-bottom: 32px
+	.about__image
+		height: 69.444vw
+	//end about style
+
+	//start features style
+	.card,
+	.card--photo
+		width: 100% 
+		height: auto
+		min-height: 84.267vw
+		
+		p 
+			font-size: 16px
+	.card--yellow
+		margin-top: 0
+		transform: rotate(0)
+	.swiper-slide
+		margin-right: 2.2vw
+	.card--photo
+		transform: rotate(0)
+		min-height: auto
+	.card p,
+	.card--photo p
+		font-size: 4.444vw
+	.card__title
+		font-size: 6.667vw
+	.card__number
+		font-size: 6.667vw
+	.card__number 
+		width: 15.556vw
+		height: 15.556vw
+	.card
+		padding: 6.667vw
+	.card__title 
+		margin-bottom: 4.444vw
+	.card__header 
+		margin-bottom: 6.667vw
+	.card 
+		background-size: 13vw
+	.swiper-slide--photo
+		display: none
+	//end features style
+
+	//start vacancies style 
+	.vacancie-card--yellow,
+	.vacancie-card--photo
+		transform: rotate(0)
+	//end vacancies style
+
+	//start video section 
+	.video-wrapper
+		height: 55vw
+	//end video section
+
+	//start emploer style
+	.swiper-container-secondary .swiper-slide
+		height: 69.444vw
+	.employee__img-wrapper img
+		height: 38.889vw
+	.employee__img-wrapper--3 img
+		height: 52.778vw
+	.employee__img-wrapper--2 img
+		height: 69.444vw
+	.employee__img-wrapper--3
+		align-items: center
+	.employee__img-wrapper
+		height: 100% 
+		align-items: center
+		display: flex
+	.employee__img-wrapper img
+		border-radius: 4.444vw
+	//end emploer style
+
+	//start cta style 
+	.cta__img
+		display: none
+	.cta__content-wrapper 
+		background-size: 55vw
+	.cta__content
+		border-radius: 8.889vw 0 8.889vw 0
+	.cta__content-wrapper
+		padding: 0
+		text-align: center
+		padding-bottom: 80px
+	.cta__text-wrapper 
+		width: 100%
+		max-width: 100%
+		padding-top: 8.889vw
+		padding-bottom: 8.889vw
+	.cta 
+		.text 
+			max-width: 50%
+			margin-left: auto 
+			margin-right: auto
+		.headline--s
+			margin-bottom: 16px			
+	//end cta style
+
+
+	
+	
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px)
+	/**/
+	
+	//start global style 
+	.h1 
+		font-size: 60px
+	.text 
+		font-size: 18px
+	.button--primary
+		font-size: 16px 
+		width: 100%
+		justify-content: center
+		padding-top: 0 
+		padding-bottom: 0 
+		height: 48px
+	.headline--md
+		font-size: 36px
+		margin-bottom: 16px
+	.text 
+		font-size: 16px
+	.headline--l
+		font-size: 36px
+	.swiper-container 
+		margin-top: 0
+	.section
+		padding-top: 30px 
+		padding-bottom: 30px
+	.title--m
+		font-size: 20px
+	.label 
+		font-size: 14px
+		padding-left: 16px 
+		padding-right: 16px
+	.headline--s
+		font-size: 24px
+	.button 
+		font-size: 16px
+	.vacancie-card--yellow
+		background-size: 14.444vw
+		padding: 18px
+	.button--l
+		padding-top: 14px 
+		padding-bottom: 14px 
+		width: 100%
+	.button--tertiary
+		svg 
+			display: none
+
+	//end global style
+	
+	//start header style
+	.logo
+		img 
+			width: 120px
+	//end header style
+	
+	//start main screen style 
+	.main-screen
+		.container 
+			padding-top: 10vw 
+			padding-bottom: 10vw
+	//end main-screen style
+
+	//start vacancies style 
+	.vacancie-card__image-wrapper
+		height: 33.333vw
+	.vacancie-card__content
+		height: auto
+	.photo-col
+		display: none
+	.vacancies-section .col-lg-4 
+		margin-top: 32px
+	.vacancie-card__arrow
+		display: none
+	.vacancie-card:hover .vacancie-card__image
+		mask-image: none
+	.quantity-vacancies
+		font-size: 36px
+	//end vacancies style
+
+	//start video section 
+	.video-wrapper
+		height: 83.333vw
+		border-radius: 8.889vw
+	.video-wrapper
+		margin-top: 32px
+	.video-section
+		padding-top: 80px
+	.play-btn
+		img 
+			width: 15.556vw
+			height: 15.556vw
+	//end video section
+
+	//start emploeer style
+	.swiper-container-secondary
+		margin-top: 13.889vw
+	//end emploer style
+
+	//cta style
+	.cta .headline--s
+		font-size: 36px
+	.cta .text
+		max-width: 55% 
+	.cta
+		padding-top: 0px
+		top: 40px
+	//cta style
+
+	//start footer style 
+	.footer__menu
+		flex-direction: column
+		margin-right: 0
+	.footer__menu-col
+		margin-bottom: 24px
+	.footer-bottom-menu 
+		display: flex
+		flex-direction: column
+		text-align: center
+	.footer-bottom-link
+		margin-bottom: 12px
+		display: block
+	.footer
+		font-size: 16px
+	.footer__bottom 
+		font-size: 12px
+	//end footer style
+
+	
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	/**/
+	
+	//start header style
+	.search.active
+		max-width: 44vw
+	//end header style
+
+	.cta .text
+		max-width: 85% 
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+	/**/
+
+
+/*==========  Mobile First  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+	/**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+	/**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+	/**/
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	/**/
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+	/**/
+
+
+
+
+
