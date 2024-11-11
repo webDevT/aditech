@@ -16,10 +16,21 @@ window.addEventListener('scroll', function() {
 //end sticky header
 
 //start search 
-document.querySelector('.search').addEventListener('click', function() {
-    this.classList.toggle('active');
-  });
-  
+const searchElement = document.querySelector('.search');
+const searchIcon = searchElement.querySelector('a');
+
+searchElement.addEventListener('click', function(event) {
+  if (!searchElement.classList.contains('active')) {
+    event.preventDefault(); 
+    searchElement.classList.add('active');
+  }
+});
+
+document.addEventListener('click', function(event) {
+  if (!searchElement.contains(event.target)) {
+    searchElement.classList.remove('active'); 
+  }
+});
 //end search
 
 
@@ -62,4 +73,15 @@ document.addEventListener("DOMContentLoaded", function() {
       992: { slidesPerView: 5 },
     },
   });
+});
+
+const playButton = document.querySelector('.play-btn');
+const videoCover = document.querySelector('.video-cover');
+const videoPlayer = document.querySelector('#video-player');
+
+playButton.addEventListener('click', function() {
+  videoCover.style.display = 'none';      // Скрываем обложку
+  playButton.style.display = 'none';      // Скрываем кнопку play
+  videoPlayer.style.display = 'block';    // Показываем видео
+  videoPlayer.play();                     // Запускаем видео
 });
