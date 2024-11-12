@@ -244,6 +244,8 @@
 		img 
 			display: block
 			margin-right: 8px
+	.header.active .menu
+		padding-bottom: 90px			
 	.header.active .menu .header-mobile-button
 		width: 100%
 		.button 
@@ -260,6 +262,8 @@
 		padding-bottom: 5px 
 		display: flex 
 		align-items: center
+	.menu li:first-child
+		display: block
 	//end header style
 
 	//start contentn style 
@@ -288,9 +292,7 @@
 	.card,
 	.card--photo
 		width: 100% 
-		height: auto
-		min-height: 84.267vw
-		
+		height: auto		
 		p 
 			font-size: 16px
 	.card--yellow
@@ -357,9 +359,9 @@
 	.cta__img
 		display: none
 	.cta__content-wrapper 
-		background-size: 55vw
+		background-size: 41vw
 	.cta__content
-		border-radius: 8.889vw 0 8.889vw 0
+		border-radius: 4vw 0 4vw 0
 	.cta__content-wrapper
 		padding: 0
 		text-align: center
@@ -371,11 +373,16 @@
 		padding-bottom: 8.889vw
 	.cta 
 		.text 
-			max-width: 50%
+			max-width: 100%
 			margin-left: auto 
 			margin-right: auto
 		.headline--s
-			margin-bottom: 16px			
+			margin-bottom: 16px
+	.cta__content-wrapper
+		padding-bottom: 0	
+	.cta__content-wrapper 
+		padding-left: 24px 
+		padding-right: 24px		
 	//end cta style
 
 
@@ -433,7 +440,29 @@
 			display: none
 
 	//end global style
+
+	//start buttons style
+	.button:after 
+		display: none
+	//end buttons style
 	
+	//start buttons style
+	.button
+		width: 100%
+		height: 48px
+		text-align: center
+		padding-top: 5px 
+		padding-bottom: 5px
+		display: flex 
+		align-items: center
+		justify-content: center
+		svg 
+			display: none
+	.cta__content-wrapper
+		padding-left: 24px 
+		padding-right: 24px
+	//end buttons style
+
 	//start header style
 	.logo
 		img 
@@ -487,10 +516,12 @@
 	.cta .headline--s
 		font-size: 36px
 	.cta .text
-		max-width: 55% 
+		max-width: 100% 
 	.cta
 		padding-top: 0px
 		top: 40px
+	.cta__content
+		border-radius: 6vw 0 6vw 0
 	//cta style
 
 	//start footer style 
@@ -510,6 +541,27 @@
 		font-size: 16px
 	.footer__bottom 
 		font-size: 12px
+	.footer__menu-links
+		display: none
+	.footer__menu-title
+		margin-bottom: 12px
+		display: flex
+		justify-content: space-between
+		align-items: center
+	.footer__menu-title:after 
+		content: ''
+		width: 12px 
+		height: 6px
+		background: url('../img/down.svg')
+		background-size: 100% 
+		background-position: center
+	.footer__menu-col.active 
+		.footer__menu-links
+			display: block
+	.footer__menu-col:last-child .footer__menu-title
+		display: none
+	.footer__menu-col:nth-child(3)
+		margin-bottom: 0
 	//end footer style
 
 	
@@ -526,7 +578,9 @@
 	//end header style
 
 	.cta .text
-		max-width: 85% 
+		max-width: 100% 
+	.cta__content-wrapper 
+		background-size: 55vw
 
 
 /* Custom, iPhone Retina */

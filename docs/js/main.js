@@ -34,19 +34,18 @@ document.addEventListener('click', function(event) {
 //end search
 
 
-
 document.addEventListener("DOMContentLoaded", function() {
-  // first slide
-  const mainSwiper = new Swiper('.swiper-container', {
+  // First Slider
+  const mainSwiper = new Swiper('.swiper-container-primary', {
     slidesPerView: 1.1,
     spaceBetween: 30,
     loop: false,
     navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next-primary',
+      prevEl: '.swiper-button-prev-primary',
     },
     pagination: {
-      el: '.swiper-pagination',
+      el: '.swiper-pagination-primary',
       clickable: true,
     },
     breakpoints: {
@@ -56,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
     },
   });
 
-  // second slide
+  // Second Slider
   const secondarySwiper = new Swiper('.swiper-container-secondary', {
     slidesPerView: 2.1,
     spaceBetween: 10,
@@ -69,11 +68,19 @@ document.addEventListener("DOMContentLoaded", function() {
       delay: 3000,
       disableOnInteraction: false,
     },
+    pagination: {
+      el: '.swiper-pagination-secondary',
+      clickable: true,
+    },
     breakpoints: {
       992: { slidesPerView: 5 },
     },
   });
 });
+
+
+
+
 
 const playButton = document.querySelector('.play-btn');
 const videoCover = document.querySelector('.video-cover');
@@ -85,3 +92,28 @@ playButton.addEventListener('click', function() {
   videoPlayer.style.display = 'block';    // Показываем видео
   videoPlayer.play();                     // Запускаем видео
 });
+
+
+//start footer mobile
+document.addEventListener("DOMContentLoaded", function() {
+  const menuTitles = document.querySelectorAll('.footer__menu-title');
+
+  menuTitles.forEach((title, index) => {
+    title.addEventListener('click', function() {
+      // Если это заголовок третьей колонки
+      if (index === 2) {
+        // Добавляем/удаляем класс 'active' у третьей и четвертой колонок
+        const thirdCol = document.querySelector('.footer__menu-col:nth-child(3)');
+        const fourthCol = document.querySelector('.footer__menu-col:nth-child(4)');
+        
+        thirdCol.classList.toggle('active');
+        fourthCol.classList.toggle('active');
+      } else {
+        // Обычное поведение для всех остальных заголовков
+        this.parentElement.classList.toggle('active');
+      }
+    });
+  });
+});
+
+//end footer mobile

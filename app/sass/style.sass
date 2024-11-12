@@ -105,6 +105,61 @@ p
     font-weight: 500
     svg 
         stroke: $white
+        transition: all .3s
+.button--xl:after 
+    content: ""
+    width: 24px 
+    height: 24px 
+    background-image: url('../img/arrow-right.svg')
+    background-size: 100%
+    margin-left: 12px
+    position: relative
+    z-index: 1
+    transition: all 0.3s
+    background-repeat: no-repeat
+    background-position: center
+    display: block
+.button--xl:hover:after 
+    background-image: url('../img/arrow-right-yellow.svg')
+    transform: translateX(4px)
+.button--secondary:after
+    content: ""
+    width: 20px 
+    height: 20px 
+    background-image: url('../img/arrow-right-black.svg')
+    background-size: 100%
+    margin-left: 12px
+    position: relative
+    z-index: 1
+    transition: all 0.3s
+    background-repeat: no-repeat
+    background-position: center
+    display: block
+.button--secondary:hover:after
+    background-image: url('../img/arrow-right-white.svg')
+    transform: translateX(4px)
+.button--tertiary
+    display: flex 
+    justify-content: center
+    align-items: center
+    margin-left: auto 
+    margin-right: auto
+.button--tertiary:after
+    content: ""
+    width: 20px 
+    height: 20px 
+    background-image: url('../img/arrow-right-white.svg')
+    background-size: 100%
+    margin-left: 12px
+    position: relative
+    z-index: 1
+    transition: all 0.3s
+    background-repeat: no-repeat
+    background-position: center
+    display: block
+.button--tertiary:hover:after
+    background-image: url('../img/arrow-right-blue.svg')
+    transform: translateX(4px)
 .button span
     z-index: 5
 .button::before
@@ -127,6 +182,8 @@ p
     border-color: $blue
     svg 
         stroke: $blue
+        transition: all .3s
+        
 .button > *
     position: relative
     z-index: 2
@@ -149,12 +206,13 @@ p
     border-color: $yellow
     color: $yellow
     svg
-        transform: translateX(4px) translateY(-4px)
         stroke: $yellow
 .button--secondary
     background: #fff
     border: none
     color: $black
+    display: flex 
+    align-items: center
     svg 
         stroke: $black 
         margin-left: 8px
@@ -173,6 +231,26 @@ p
         stroke: $yellow
         margin-left: 8px
         width: 20px
+.text-button:after 
+    content: ''
+    width: 20px 
+    min-width: 20px
+    height: 20px 
+    background-image: url('../img/arrow-right-yellow.svg')
+    background-size: 100%
+    margin-left: 8px
+    position: relative
+    z-index: 1
+    transition: all 0.3s
+    background-repeat: no-repeat
+    background-position: center
+    display: block
+.text-button:hover:after
+    color: #FF8E0B
+    width: 20px 
+    height: 20px 
+    background-image: url('../img/arrow-right-yellow-light.svg')
+    transform: translateX(4px)
 .text-button--lg 
     font-size: 16px
 .text-button:hover
@@ -187,8 +265,21 @@ p
     font-size: 18px
     padding-top: 16px
     padding-bottom: 16px
+    padding-left: 28px 
+    padding-right: 28px
+    svg 
+        margin-left: 12px
 .button--m 
     font-size: 16px
+.button--xl:hover
+    svg 
+        transform: translateX(4px) translateY(0px)
+.button--m:hover
+    svg 
+        transform: translateX(4px) translateY(0px)
+.button--lg:hover
+    svg 
+       transform: translateX(4px) translateY(0px)
 //end buttons style
 
 //start header style
@@ -241,6 +332,8 @@ p
     li 
         margin-left: 20px 
         margin-right: 20px 
+    li:first-child 
+        display: none
 .header__right
     display: flex 
     align-items: center
@@ -328,6 +421,15 @@ p
         z-index: 1
     .button 
         margin-top: 40px
+.main-screen:before 
+    content: ''
+    width: 100% 
+    height: 100% 
+    background: rgba(0, 0, 0, 0.4)
+    position: absolute 
+    top: 0 
+    left: 0
+    z-index: 1
 .main-screen__content
     width: 616px
     max-width: 100%
@@ -457,6 +559,19 @@ p
         color: #fff
     .card__number
         background: #fff
+.swiper-pagination-primary
+    position: static
+    display: flex 
+    justify-content: center 
+    align-items: center 
+    margin-top: 15px
+.swiper-pagination-bullet 
+    width: 8px 
+    height: 8px 
+    background: rgba(#2C5DFF, 1)
+.swiper-pagination-bullet-active
+    background: $yellow
+
 
 //start vacancies style 
 .vacancie-card
@@ -581,6 +696,8 @@ p
     text-align: center
     margin-left: auto 
     margin-right: auto
+    display: flex 
+    flex-direction: column
 .video-wrapper
     width: 1263px
     max-width: 100%
@@ -694,6 +811,9 @@ p
 .cta__text-wrapper
     width: 600px 
     max-width: 100%
+    display: flex 
+    flex-direction: column
+    align-items: flex-start
 //end cta section style 
 
 //start footer style 
@@ -705,13 +825,15 @@ p
     .container 
         display: flex 
         justify-content: space-between
+        width: 1260px
 .footer__menu-link
     display: flex 
     align-items: center
-    padding-left: 22px
+    padding-left: 24px
     background: url('../img/arrow-right-yellow.svg')
+    background-size: 16px
     background-repeat: no-repeat
-    background-position: top 1px left
+    background-position: top 2px left
     margin-top: 12px 
     color: #12100B
 .footer__menu-link:hover 
