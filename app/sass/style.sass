@@ -42,7 +42,7 @@ a:hover
     line-height: 1.45
 .headline
     font-weight: 900
-    line-height: 1.25
+    line-height: 1.1
     color: $black
     span 
         color: $yellow
@@ -880,7 +880,268 @@ p
     margin-left: 16px
 //end footer style 
 
+//start vacancies style
+.main-screen--vacancies
+    text-align: center
+    min-height: auto
+    .container 
+        min-height: auto
+        padding-top: 160px
+        padding-bottom: 113px
+.vacancies-main-screen__content
+    width: 100%
+.vacancies-main-screen__content .headline
+    color: #fff
+    margin-bottom: 24px
+.search-input-wrapper
+    margin-top: 48px
+    position: relative
+    width: 700px 
+    max-width: 100%
+    margin-left: auto 
+    margin-right: auto
+.search-input 
+    width: 100%
+    height: 60px
+    outline: none
+    border-radius: 100px
+    border: none
+    padding-left: 24px 
+    padding-right: 24px
+    border: 1px solid #D2DCEB
+    font-size: 18px
+.search-input::placeholder
+    color: #686F7B
+.search-input__btn
+    cursor: pointer
+    position: absolute
+    top: 50% 
+    right: 24px
+    transform: translateY(-50%)
+    z-index: 1
+.vacancies-header .container
+    display: flex 
+    justify-content: space-between
+    align-items: center
+.content--white
+    background: $white
+    padding-bottom: 0
+//end vacancies style
 
+//start custom select style
+.custom-select
+    position: relative
+    width: 330px
+.select-header
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding: 10px 24px
+    border: 1px solid #D2DCEB
+    cursor: pointer
+    background-color: #fff
+    height: 60px
+    border-radius: 100px
+.select-header .selected-count
+    color: #ffc107
+    margin-left: 5px
+.select-options
+    list-style: none
+    margin: 0
+    padding: 0
+    border: 1px solid #EBF0F9
+    position: absolute
+    width: 100%
+    background-color: #fff
+    display: none
+    z-index: 10
+    margin-top: 12px
+    border-radius: 24px
+    padding-top: 24px 
+    padding: 16px 24px
+    box-shadow: 0px 6px 15px rgba(192, 192, 192, 0.2)  
+.select-options li
+    padding: 8px 0px
+    display: flex
+    align-items: center
+.select-options li.selected
+    //border: 1px solid #ffc107
+.select-options li.selected + li:not(.selected)
+    border-top: 1px solid #D2DCEB
+    margin-top: 8px
+    padding-top: 16px
+.arrow
+    width: 20px
+    height: 20px 
+    cursor: pointer
+    background: url('../img/down-black.svg')
+    background-repeat: no-repeat 
+    background-position: center
+.clear
+    font-size: 12px
+    color: red
+    cursor: pointer
+    display: none
+input[type="checkbox"]
+    display: none
+.select-header.active
+    border-color: $yellow
+    .arrow 
+        background: url('../img/arrow-top.svg')
+        background-repeat: no-repeat 
+        background-position: center
+.clear
+    img 
+        width: 20px 
+        height: 20px
+        display: block
+.custom-checkbox
+    display: inline-block
+    width: 20px
+    height: 20px
+    border: 1.5px solid #D2DCEB
+    border-radius: 4px
+    margin-right: 10px
+    cursor: pointer
+    transition: background-color 0.2s, border-color 0.2s
+input[type="checkbox"]:checked + .custom-checkbox
+    background-color: rgba($yellow, 0.08)
+    border-color: $yellow
+    background-image: url('../img/checkbox.svg')
+    background-repeat: no-repeat 
+    background-position: center
+input[type="checkbox"]:focus + .custom-checkbox
+    outline: 2px solid #ffc107
+input[type="checkbox"]:hover + .custom-checkbox
+    border-color: #aaa
+//end custom select style 
+
+
+//start search city
+
+.city-list
+    display: none
+    position: absolute
+    top: 100%
+    left: 0
+    right: 0
+    background: #fff
+    border: 1px solid #ebf0f9
+    border-radius: 5px
+    margin-top: 5px
+    padding: 10px 0
+    list-style: none
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+    z-index: 10
+    margin-top: 8px
+.city-list.active
+    display: block
+.city-item
+    padding: 8px 0px
+    cursor: pointer
+    padding-left: 35px
+.search-container
+    position: relative
+    margin-left: 32px
+    width: 330px
+    height: 60px
+    border: 1px solid #D2DCEB
+    border-radius: 100px
+    padding-left: 24px 
+    padding-right: 24px
+.search-container.active 
+    border-color: $yellow
+    .search-icon
+        background: url('../img/search-yellow.svg')
+.filter-wrapper
+    display: flex 
+    align-items: center
+.search-icon
+    width: 24px 
+    height: 24px
+    display: block 
+    position: absolute
+    top: 50% 
+    right: 24px
+    transform: translateY(-50%)
+    background: url('../img/search-grey.svg')
+    cursor: pointer
+.search-city
+    width: 100% 
+    height: 100%
+    background: transparent
+    display: block
+    border: none 
+    outline: none
+    
+.search-city-wrapper 
+    width: 100% 
+    height: 100%
+.line 
+    width: 100%
+    height: 1px
+    background: #D2DCEB
+    margin-left: auto 
+    margin-right: auto
+    margin-bottom: 8px
+    margin-top: 8px
+.city-item
+    display: flex 
+    align-items: center
+    padding-top: 8px 
+    padding-bottom: 8px
+    img 
+        display: block 
+        margin-right: 12px
+.city-list 
+    padding: 24px
+    box-sizing: border-box
+.city-item
+   background: url('../img/location.svg') 
+   background-repeat: no-repeat
+   background-position: center left 
+.city-item--recent
+    background: url('../img/round-history.svg')
+    background-repeat: no-repeat 
+    background-position: center left  
+.headline--s .headline-s-span
+    color: $black
+.city-list
+    box-shadow: 0px 6px 15px rgba(192,192,192,.2)
+    border-radius: 24px
+//end search city
+.mobile-expertise-list
+    display: none
+.content--white
+    padding-top: 96px
+    box-shadow: none
+.main-screen--vacancies
+    background-image: url('../img/vacancies-bg.jpg')
+    background-size: cover
+    background-position: center
+.main-screen--vacancies:before
+    background: rgba(#000, .6)
+.vacancies-page-section .vacancie-card--yellow
+    transform: rotate(0)
+    .button
+        display: none
+.headeline--mobile
+    display: none
+.hidden
+    display: none
+.loader
+    width: 56px
+    height: 56px
+    border: 6px solid #ebf0f9
+    border-top: 6px solid #f08100
+    border-radius: 50%
+    animation: spin 1s linear infinite
+    margin: 20px auto
+@keyframes spin
+    from
+        transform: rotate(0deg)
+    to
+        transform: rotate(360deg)
 @import "media"
 
 

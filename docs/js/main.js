@@ -81,18 +81,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+// start video script
 const playButton = document.querySelector('.play-btn');
 const videoCover = document.querySelector('.video-cover');
 const videoPlayer = document.querySelector('#video-player');
 
 playButton.addEventListener('click', function() {
-  videoCover.style.display = 'none';      // Скрываем обложку
-  playButton.style.display = 'none';      // Скрываем кнопку play
-  videoPlayer.style.display = 'block';    // Показываем видео
-  videoPlayer.play();                     // Запускаем видео
+  videoCover.style.display = 'none';     
+  playButton.style.display = 'none';     
+  videoPlayer.style.display = 'block';    
+  videoPlayer.play();                     
 });
-
+// end video script
 
 //start footer mobile
 document.addEventListener("DOMContentLoaded", function() {
@@ -100,16 +100,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   menuTitles.forEach((title, index) => {
     title.addEventListener('click', function() {
-      // Если это заголовок третьей колонки
       if (index === 2) {
-        // Добавляем/удаляем класс 'active' у третьей и четвертой колонок
         const thirdCol = document.querySelector('.footer__menu-col:nth-child(3)');
         const fourthCol = document.querySelector('.footer__menu-col:nth-child(4)');
         
         thirdCol.classList.toggle('active');
         fourthCol.classList.toggle('active');
       } else {
-        // Обычное поведение для всех остальных заголовков
         this.parentElement.classList.toggle('active');
       }
     });
