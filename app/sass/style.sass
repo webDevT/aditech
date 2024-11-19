@@ -11,6 +11,7 @@ body
     font-weight: 400
     color: $black
     line-height: 1.3
+    overflow-x: hidden
 body * 
     box-sizing: border-box
 h1,
@@ -54,6 +55,8 @@ a:hover
 .headline--s
     font-size: 40px 
     font-weight: 700
+.headline--yellow 
+    color: $yellow
 p 
     margin-bottom: 0
     margin-top: 0
@@ -103,10 +106,12 @@ p
     font-size: 14px
     border-radius: 50px
     font-weight: 500
+    display: flex 
+    align-items: center
     svg 
         stroke: $white
         transition: all .3s
-.button--xl:after 
+.button--primary:after 
     content: ""
     width: 24px 
     height: 24px 
@@ -119,7 +124,7 @@ p
     background-repeat: no-repeat
     background-position: center
     display: block
-.button--xl:hover:after 
+.button--primary:hover:after 
     background-image: url('../img/arrow-right-yellow.svg')
     transform: translateX(4px)
 .button--secondary:after
@@ -192,7 +197,7 @@ p
     color: #fff
     font-size: 18px 
     font-weight: 500
-    padding: 21.2px 28px
+    padding: 16.4px 28px
     border-radius: 50px
     display: flex 
     align-items: center
@@ -251,6 +256,17 @@ p
     height: 20px 
     background-image: url('../img/arrow-right-yellow-light.svg')
     transform: translateX(4px)
+.button--whats-app 
+    background: #25D366
+    border-color: #25D366
+.button--whats-app:after 
+    background-image: url('../img/whatsapp.svg')
+.button--whats-app:hover 
+    color: #25D366    
+    border-color: #25D366
+.button--whats-app:hover:after 
+    background-image: url('../img/whatsapp-green.svg')
+    transform: translateX(0)
 .text-button--lg 
     font-size: 16px
 .text-button:hover
@@ -262,9 +278,9 @@ p
     align-items: center
     justify-content: space-between
 .button--lg
-    font-size: 18px
-    padding-top: 16px
-    padding-bottom: 16px
+    font-size: 16px
+    padding-top: 10.4px
+    padding-bottom: 10.4px
     padding-left: 28px 
     padding-right: 28px
     svg 
@@ -781,7 +797,8 @@ p
 .cta 
     padding-top: 150px
     position: relative 
-    top: 60px
+    top: 0px
+    z-index: 100
     .button 
         margin-top: 24px
     .headline 
@@ -818,8 +835,13 @@ p
 
 //start footer style 
 .footer 
-    background: rgba(#F08100, 0.08)
+    background: #FDF4EA
     padding-top: 124px
+    border-top-left-radius: 48px 
+    border-top-right-radius: 48px
+    margin-top: -48px
+    position: relative
+    z-index: 99
 .footer__content 
     padding-bottom: 48px
     .container 
@@ -999,9 +1021,10 @@ input[type="checkbox"]
     display: inline-block
     width: 20px
     height: 20px
+    min-width: 20px
     border: 1.5px solid #D2DCEB
     border-radius: 4px
-    margin-right: 10px
+    margin-right: 12px
     cursor: pointer
     transition: background-color 0.2s, border-color 0.2s
 input[type="checkbox"]:checked + .custom-checkbox
@@ -1142,6 +1165,317 @@ input[type="checkbox"]:hover + .custom-checkbox
         transform: rotate(0deg)
     to
         transform: rotate(360deg)
+
+//start vacancy details style
+.main-screen--vacancies-details
+    background-image: url('../img/vacanci-details.jpg')
+    background-size: cover 
+    background-position: center
+    .headline--md
+        font-size: 56px 
+        font-weight: 900
+.main-screen__list
+    display: flex 
+    justify-content: center 
+    align-items: center
+.main-screen__item
+    display: flex 
+    align-items: center
+    img
+        margin-right: 8px 
+        display: block
+.dot-white
+    width: 4px 
+    height: 4px
+    background: #fff
+    border-radius: 50%
+    margin-left: 12px 
+    margin-right: 12px
+.vacancie-details__buttons
+    display: flex 
+    justify-content: center 
+    align-items: center
+.vacancie-details__buttons
+    .button
+        margin-left: 16px 
+        margin-right: 16px
+.main-screen--vacancies .container
+    padding-bottom: 200px
+    padding-top: 200px
+.no-shadow 
+    box-shadow: none
+.content-vacancy
+    padding-top: 0
+    padding-bottom: 150px
+    background: transparent
+.content-vacancy .container
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+.vacancy-detais__content
+    flex: 1
+.vacancy-detais__wrapper
+    //width: 95%
+.sidebar
+    position: sticky
+    top: 150px
+    height: fit-content
+    width: 453px
+    min-width: 453px
+    margin-top: 100px
+    z-index: 999
+.item 
+    background: #fff
+    box-shadow: 0px 6px 15px rgba(183, 159, 131, 0.2)
+    border-radius: 0px 32px
+    padding: 32px
+    background: $white
+.vacancy-detais__content  
+    width: calc(100% - 453px)
+    .headline--s 
+        margin-bottom: 30px 
+.vacancy-detais__item
+    margin-bottom: 88px
+    .col-lg-6
+        .item
+            margin-top: 30px
+.vacancy-photo
+    width: 100%
+    height: 300px 
+    object-fit: cover 
+    object-position: center
+    border-radius: 24px
+.item__icon
+    width: 64px 
+    height: 64px
+    display: flex 
+    justify-content: center 
+    align-items: center
+    background: rgba(#2C5DFF , .2)
+    border-radius: 50%
+.item
+    .item__icon
+        margin-bottom: 42px
+.title 
+    font-size: 34px
+    margin-bottom: 16px
+.title--yellow 
+    color: $yellow
+.text--grey
+    color: #A3ACBA
+.sidebar
+    .title 
+        margin-bottom: 0
+    .vacancie-details__buttons 
+        flex-direction: column
+        .button 
+            width: 100%
+            justify-content: center 
+            margin-bottom: 16px
+.sidebar__header
+    padding-bottom: 24px 
+    margin-bottom: 24px 
+    border-bottom: 1px solid #D2DCEB
+.sidebar__info
+    display: flex 
+    align-items: center
+    margin-bottom: 24px
+.sidebar__info-item
+    display: flex 
+    align-items: center
+    img 
+        display: block 
+        margin-right: 0
+.sidebar__contact
+    display: flex   
+.sidebar__contact-text
+    padding-left: 16px
+.sidebar__contact-name
+    font-size: 20px
+    font-weight: 500 
+    color: $yellow
+    margin-bottom: 8px
+.sidebar__contact-item
+    font-size: 16px
+    display: flex 
+    align-items: center
+    color: $black
+    margin-bottom: 8px
+    span 
+        border-bottom: 1px solid $black
+        margin-left: 8px
+        display: block
+.sidebar__info-item img   
+    margin-right: 8px
+.what-need
+    ul
+        padding: 0 
+        margin: 0 
+        list-style: none
+    li 
+        margin-bottom: 32px
+        background: $white 
+        padding: 32px 40px
+        display: inline-block
+        font-size: 24px
+        border-radius: 32px
+        box-shadow: 0px 6px 15px rgba(183, 159, 131, 0.2)
+    li:nth-child(2)
+        background: #D7E6FF
+        transform: rotate(2deg)
+    li:nth-child(5)
+        background: #D7E6FF
+        transform: rotate(-2deg)
+.pink-wrapper
+    position: relative
+    padding-top: 150px
+    padding-bottom: 150px
+    margin-top: -48px
+    z-index: 999
+    
+.pink-wrapper:before 
+    content: ''
+    position: absolute 
+    left: -10vw
+    transform: translateX(0%)
+    top: 0px
+    background: #FDF4EA
+    width: 100vw 
+    height: 100%
+    display: block
+    z-index: -1
+    border-top-left-radius: 48px 
+    border-bottom-right-radius: 48px
+   
+
+.vacancy-detais__item
+    position: relative
+    z-index: 1
+.content-vacancy-wrapper
+    .container
+        width: 80vw
+        padding-left: 0 
+        padding-right: 0
+.process
+    padding-top: 150px
+.vacancy-detais__wrapper 
+    width: 95%
+.process__item
+    position: relative
+    box-shadow: 0px 6px 15px rgba(192, 192, 192, 0.2)
+    border-radius: 24px
+    display: flex
+    align-items: center
+    margin-bottom: 80px
+.process__item:after 
+    content: ''
+    position: absolute
+    width: 25px 
+    height: 19px
+    background: url('../img/arrow-duble.svg')
+    background-size: 100% 
+    background-position: center
+    left: 50% 
+    bottom: -50px 
+    transform: translateX(-50%)
+.process__item:last-child:after 
+    display: none
+.process__item-img
+    width: 250px 
+    min-height: 140px 
+    height: auto
+    object-fit: cover 
+    object-position: center 
+    border-radius: 24px
+.process__item:first-child .process__item-img
+    border-top-left-radius: 0
+.process__item:last-child .process__item-img
+    border-bottom-left-radius: 0
+.process__item-content
+    padding-left: 40px
+    p 
+        color: #686F7B
+.title--l
+    font-size: 28px
+    margin-bottom: 12px
+//end vacancy details style
+
+//start form section style 
+.form-section
+    background: linear-gradient(90deg, #F08100 0%, #FFA43A 100%)
+    box-shadow: 0px 6px 15px rgba(183, 159, 131, 0.2)
+    padding-top: 150px 
+    padding-bottom: 150px
+.form-wrapper
+    background: $white 
+    margin-left: auto 
+    margin-right: auto
+    width: 1000px 
+    max-width: 100% 
+    margin-left: auto 
+    margin-right: auto
+    border-radius: 32px
+    padding: 72px
+.form-label
+    display: block
+    margin-bottom: 8px
+    span 
+        color: $yellow
+.input,
+.textarea 
+    width: 100%
+    font-size: 18px 
+    font-family: $main-font
+    height: 60px 
+    border: 1px solid #D2DCEB
+    border-radius: 100px
+    padding: 0 24px
+    outline: none
+    color: #12100B
+.textarea 
+    height: 130px
+    border-radius: 24px
+    padding-top: 16px 
+    padding-bottom: 16px
+.input:focus 
+    border: 1px solid $yellow
+.input-wrapper
+    margin-top: 24px
+.form-row
+    display: flex 
+    justify-content: space-between
+    .input-wrapper 
+        width: 48%
+.file-input-label 
+    width: 100%
+    padding: 16px
+    border: 2px dashed $yellow
+    display: block
+    cursor: pointer
+    text-align: center
+    margin-bottom: 4px
+    border-radius: 16px
+    background: rgba($yellow, .08)
+.file-input 
+    display: none
+.file-input__title 
+    color: $yellow 
+.file-input__text 
+    font-size: 14px 
+    color: #686F7B
+.checkbox-wrapper
+    display: flex 
+    align-items: center
+.form-footer
+    display: flex 
+    justify-content: center
+    margin-top: 48px
+//end form section style 
+.form-section + .footer
+    padding-top: 64px
+.checkbox-wrapper
+    span 
+        color: $yellow
 @import "media"
 
 
