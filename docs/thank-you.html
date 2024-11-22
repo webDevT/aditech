@@ -413,27 +413,27 @@
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script src="js/main.js"></script>
 	<script>
-	// Инициализация Swiper с адаптивными настройками
+
 const swiper = new Swiper('.swiper-container', {
-  slidesPerView: 3, // Показываем 3 карточки на десктопах
-  spaceBetween: 0, // Расстояние между слайдами
-  loop: true, // Бесконечный цикл слайдов
+  slidesPerView: 3,
+  spaceBetween: 0,
+  loop: true, 
 
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
   },
   breakpoints: {
-    // Настройки для мобильных устройств
+    
     1024: {
-      slidesPerView: 3, // На экранах шириной 1024px и больше показываем 3 слайда
+      slidesPerView: 3, 
     },
     768: {
-      slidesPerView: 2.2, // На экранах до 768px показываем 1 слайд и немного второго
-      spaceBetween: 10, // Меньшее расстояние на мобильных
+      slidesPerView: 2.2, 
+      spaceBetween: 10, 
     },
     0: {
-      slidesPerView: 1.2, // На самых маленьких экранах показываем только один слайд
+      slidesPerView: 1.2, 
     }
   }
 });
