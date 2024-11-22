@@ -366,7 +366,8 @@ p
 .logo 
     img
         width: 200px
-.header.sticky 
+.header.sticky,
+.header--white
     background: #fff
     box-shadow: 0 5px 10px rgba(#BBBBBB, .15)
     .menu a
@@ -382,6 +383,9 @@ p
     .search.active 
         svg 
             stroke: $yellow
+.header--white
+    box-shadow: none
+
 .search
     display: flex 
     justify-content: flex-end
@@ -1476,6 +1480,159 @@ input[type="checkbox"]:hover + .custom-checkbox
 .checkbox-wrapper
     span 
         color: $yellow
+
+//start thank you page
+.thank-you-page
+    background: $yellow
+    min-height: 100vh
+    padding-top: 200px
+.thank-you__wrapper
+    background: #fff
+.thank-you__wrapper
+    padding: 100px 64px
+    border-radius: 32px
+.thank-you__card
+    background: $white
+    border: 1px solid #EBF0F9
+    box-shadow: 0px 5.02759px 12.569px rgba(192, 192, 192, 0.2)
+    border-radius: 16px
+    max-width: calc(100%)
+    text-align: center
+    min-height: 250px
+.thank-you__image
+    width: 100%
+.thank-you__container
+    padding: 8px
+.thank-you__image
+   border-radius: 16px
+.thank-you__title
+    padding-top: 8px 
+    padding-bottom: 8px
+    font-size: 18px
+.thank-you__text
+    font-size: 14px 
+    color: #686F7B
+    padding-bottom: 11px
+.thank-you__row
+    display: flex 
+    justify-content: space-between
+.thank-you__item
+    position: relative
+    display: flex 
+    align-items: center
+.arrow-right
+    display: block
+    margin-left: 26px 
+    margin-right: 26px
+.thank-you__item
+    width: 24%
+.thank-you__item.active
+    width: 28%
+    .thank-you__card
+        background: rgba(#F08100, 0.08)
+    .arrow-right
+        margin-right: 30px 
+        margin-left: 30px
+        width: 26px
+        height: 36px
+    .thank-you__title
+        font-size: 24px
+        color: #F08100
+    .thank-you__text
+        font-size: 18px
+//end thank you page
+
+//start stay in touch section 
+.stay-in-touch
+    padding-top: 100px 
+    padding-bottom: 100px
+.headline .white-text
+    color: $white
+.stay-in-touch__item
+    background: #fff 
+    border-radius: 10px
+    padding-top: 15px 
+    padding-bottom: 15px
+.stay-in-touch__item-header
+    display: flex 
+    justify-content: space-between 
+    align-items: center
+    padding-left: 15px 
+    padding-right: 15px
+    padding-bottom: 20px
+.stay-in-touch__item-header-left 
+    display: flex 
+    align-items: center
+.stay-in-touch__item-date-wrapper
+    display: flex
+    align-items: center
+    .dot 
+        margin-left: 4px 
+        margin-right: 4px
+.stay-in-touch__item-logo
+    display: block 
+    margin-right: 6px
+.company-name
+    font-size: 14px
+    color: #191919
+    font-weight: 500
+.stay-in-touch__date
+    font-size: 12px
+    color: #707070
+.stay-in-touch__text-wrapper
+    padding-left: 15px 
+    padding-right: 15px
+    padding-bottom: 20px
+.stay-in-touch__item
+    width: 390px 
+    max-width: 100%
+.stay-in-touch__row
+    width: 1260px
+    margin-left: auto 
+    margin-right: auto 
+    max-width: 100%
+    margin-top: 50px
+.stay-in-touch__text
+    font-size: 14px
+    font-weight: 400 
+    color: #191919
+.stay-in-touch__item-image
+    width: 100% 
+    height: 250px 
+    object-fit: cover 
+    object-position: center
+.stay-in-touch__link
+    font-size: 14px
+    color: #7A7A7A
+.stay-in-touch__item-footer
+    display: flex 
+    justify-content: space-between 
+    align-items: center
+    padding-top: 21px
+    padding-left: 15px 
+    padding-right: 15px
+    font-size: 14px
+.share-wrapper,
+.likes-wrapper
+    display: flex 
+    align-items: center
+    color: #707070
+    img 
+        display: block 
+        margin-right: 7px
+.swiper-slide
+    padding: 10px
+.stay-in-touch .swiper-container
+    width: 100%
+    overflow: hidden
+.stay-in-touch__text
+    display: -webkit-box
+    -webkit-line-clamp: 3
+    -webkit-box-orient: vertical
+    overflow: hidden
+    text-overflow: ellipsis
+//end stay in touch section 
+
 @import "media"
 
 
