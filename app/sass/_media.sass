@@ -61,7 +61,8 @@
 	.text-button--lg
 		svg 
 			max-width: 10px
-	.title--yellow
+	.title--yellow,
+	.title--xl
 		font-size: 24px
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1320px)
@@ -103,6 +104,13 @@
 		img 
 			width: 150px
 	//end header style
+
+	//start job style 
+	.job__item
+		padding: 20px 20px
+	.title--xl
+		margin-bottom: 10px
+	//end job style
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px)
@@ -192,6 +200,8 @@
 		margin-right: 10px
 	.headline--s .headline-s-span
 		display: none
+	.form-thank-you-wrapper-content
+		width: 472px
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1020px)
 	/**/
@@ -201,6 +211,7 @@
 	.swiper-slide
 		padding-left: 5vw 
 		padding-right: 0
+	
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 992px)
@@ -511,8 +522,58 @@
 		border-radius: 24px
 	.thank-you-page
 		padding-top: 150px
-
 	//end thank you page
+
+	//start job style 
+	.job-photo
+		transform: rotate(0)
+		width: 100%
+		height: 69.444vw
+	.job-section__header
+		flex-direction: column
+		margin-bottom: 32px
+	.job-section__header .text
+		width: 100% 
+		max-width: 100%
+	//end job style
+	
+	//start meeting style 
+	.benefits-list
+		padding-bottom: 0
+		.col-lg-4:nth-child(2),
+		.col-lg-4:last-child
+			display: none
+		.col-lg-4:nth-child(4)
+			transform: rotate(0)
+	.benefits-header
+		margin-bottom: 32px
+	.about--reverce
+		min-height: auto
+		margin-bottom: 80px
+		.about__image
+			transform: translateX(5vw) translateY(0)
+	.form-section--job
+		padding-bottom: 120px
+	.form-thank-you-wrapper
+		min-height: auto 
+		align-items: flex-start
+		padding-top: 64px
+		padding-bottom: 80vw
+	.form-thank-you-img 
+		width: 55.556vw
+		left: -4vw
+	//end meeting style
+	.videо-section-content
+		padding-left: 0
+	.video-section--about .row
+		flex-direction: column-reverse
+		margin-top: 32px
+	.about--page
+		margin-bottom: 60px
+
+
+	
+
 	
 
 
@@ -916,6 +977,13 @@
 			width: 20px
 	.stay-in-touch__item-footer
 		padding-top: 15px
+	.body--xxl
+		font-size: 18px
+	.form-thank-you-wrapper
+		padding-bottom: 78vw
+	.video-section
+		padding-bottom: 100px
+	
 
 	
 
