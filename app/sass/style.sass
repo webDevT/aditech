@@ -309,7 +309,7 @@ p
     width: 100%
     padding-top: 30px 
     padding-bottom: 30px
-    z-index: 999
+    z-index: 999999
     transition: all 0.5s
     .container 
         display: flex 
@@ -1439,8 +1439,7 @@ input[type="checkbox"]:hover + .custom-checkbox
     span 
         color: $yellow
 .input,
-.textarea,
-.select
+.textarea
     width: 100%
     font-size: 18px 
     font-family: $main-font
@@ -1708,6 +1707,9 @@ select::-ms-expand
         margin-top: 0
 .main-screen--meeting
     background: url('../img/meeting.png')
+    background-size: cover 
+    background-position: center 
+    background-repeat: no-repeat
 .benefits-list
     padding-bottom: 50px
     .col-lg-4 
@@ -1779,20 +1781,20 @@ input[type="radio"]:checked + .custom-radio:before
     cursor: pointer
 .custom-time
     position: relative
-.custom-time::after
-    content: ''
-    position: absolute
-    top: 50%
-    right: 40px
-    transform: translateY(-50%)
-    width: 18px
-    height: 20px
-    background-image: url('../img/arrow-down-yellow.svg')
-    background-size: 100%
-    pointer-events: none
-    cursor: pointer
-    background-position: center 
-    background-repeat: no-repeat
+// .custom-time::after
+//     content: ''
+//     position: absolute
+//     top: 50%
+//     right: 40px
+//     transform: translateY(-50%)
+//     width: 18px
+//     height: 20px
+//     background-image: url('../img/arrow-down-yellow.svg')
+//     background-size: 100%
+//     pointer-events: none
+//     cursor: pointer
+//     background-position: center 
+//     background-repeat: no-repeat
 .body--xxl
     font-size: 28px
 .form-thank-you-wrapper
@@ -1826,6 +1828,138 @@ input[type="radio"]:checked + .custom-radio:before
         align-items: center
 .videо-section-content
     padding-left: 30px
+.custom-date input,
+.custom-time select
+    width: 100%
+    font-size: 18px
+    font-family: "Circular Std"
+    height: 60px
+    border: 1px solid #d2dceb
+    border-radius: 100px
+    padding: 0 24px
+    outline: none
+    color: #12100b
+
+.flatpickr-footer
+    display: flex
+    justify-content: flex-end
+    padding: 10px
+    border-top: 1px solid #ddd
+    background-color: $white
+.flatpickr-cancel-btn,
+.flatpickr-done-btn
+    padding: 7px 16px
+    border: none
+    border-radius: 20px
+    cursor: pointer
+    margin-left: 6px
+.flatpickr-cancel-btn
+    background-color: #fff
+    border: 1px solid $black
+    color: $black
+.flatpickr-done-btn
+    background-color: $yellow
+    color: white
+.flatpickr-calendar.animate.open
+    padding: 20px
+    width: 355px 
+    max-width: 100%
+    left: 50%
+    margin-left: 27px
+    margin-top: 12px
+.flatpickr-months
+    margin-bottom: 20px
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month
+    top: 15px
+.flatpickr-months .flatpickr-prev-month
+    margin-left: 18px
+.flatpickr-months .flatpickr-next-month
+    margin-right: 18px
+.flatpickr-day.selected
+    background: $yellow
+    border-color: $yellow
+.flatpickr-calendar.arrowTop:before,
+.flatpickr-calendar.arrowTop:after
+    display: none
+//start custom select
+/* The container must be positioned relative: */
+.select
+    position: relative
+.select select
+    display: none
+.select-selected:after
+    position: absolute
+    content: ""
+    top: 50%
+    right: 35px
+    width: 28px
+    height: 8px
+    border: 6px solid transparent
+    background: url('../img/arrow-down.svg')
+    background-size: 100%
+    background-repeat: no-repeat
+    background-position: center
+    transform: translateY(-50%)
+.select-selected.select-arrow-active:after
+    transform: translateY(-50%) rotate(180deg)
+    background: url('../img/arrow-down-yellow.svg')
+    background-size: 100%
+    background-repeat: no-repeat
+    background-position: center
+.select-items div,.select-selected
+    color: #ffffff
+    padding: 8px 16px
+    cursor: pointer
+.select-items div
+    background: #fff
+    color: $black
+    border-left: 4px solid #fff
+.select-items
+    position: absolute
+    background-color: #fff
+    top: 120%
+    left: 0
+    right: 0
+    z-index: 99
+    height: 320px
+    overflow-y: auto
+    background: #FEFEFE
+    border: 0.5px solid #EBF0F9
+    box-shadow: 0px 6px 15px rgba(192, 192, 192, 0.2)
+    border-radius: 5px
+    padding-top: 15px 
+    padding-bottom: 15px
+    z-index: 999
+.select-hide
+    display: none
+.select-items div:hover, .same-as-selected
+    background: #FDF4EA
+    border-left: 4px solid #2C5DFF
+.select 
+    height: 60px
+.select-selected
+    height: 60px
+    display: flex 
+    align-items: center 
+    background: #fff
+    color: $black
+    border: 1px solid #d2dceb
+    border-radius: 100px
+.select-selected.select-arrow-active
+    border-color: $yellow
+
+.select-items::-webkit-scrollbar
+    width: 5px
+    border-radius: 5px
+    height: 200px
+.select-items::-webkit-scrollbar-thumb
+    background: #D2DCEB
+    border-radius: 5px 
+input[type="date"]::-webkit-calendar-picker-indicator
+    display: none
+    -webkit-appearance: none
+//end custom select
 
 @import "media"
 
