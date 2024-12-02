@@ -145,6 +145,9 @@
 </header>
 <!-- end header -->
 
+
+<!-- start filters code -->
+
 <!-- start main screen -->
 <section class="main-screen main-screen--vacancies">
 	
@@ -187,35 +190,28 @@
 
 		<div class="filter-wrapper">
 
-		<!-- start mobile cities list -->
-		<div class="mobile-expertise-list">
-			
-			<div class="expertise-item active">
-				All
-			</div>
-
-			<div class="expertise-item">
-				Office
-			</div>
-
-			<div class="expertise-item">
-				Human Resources
-			</div>
-
-			<div class="expertise-item">
-				Business Development 
-			</div>
-
-			<div class="expertise-item">
-				Customer Support  
-			</div>
-
-			<div class="expertise-item">
-				Marketing
-			</div>
-			
-		</div>
-		<!-- end mobile cities list -->
+	<!-- start mobile cities list -->
+<div class="mobile-expertise-list">
+	<div class="expertise-item active">
+	  All
+	</div>
+	<div class="expertise-item">
+	  Office
+	</div>
+	<div class="expertise-item">
+	  Human Resources
+	</div>
+	<div class="expertise-item">
+	  Business Development
+	</div>
+	<div class="expertise-item">
+	  Customer Support
+	</div>
+	<div class="expertise-item">
+	  Marketing
+	</div>
+  </div>
+  <!-- end mobile cities list -->
 
 <!-- start custom select -->
 			<div class="custom-select">
@@ -275,20 +271,23 @@
 	  <input
 		type="text"
 		class="search-city"
+		id="search-city-input"
 		placeholder="Enter your location......"
 	  />
 	  <span class="search-icon"></span>
 	</div>
-	<ul class="city-list">
-	
+	<ul class="city-list" id="city-list">
 	  <li class="city-item city-item--recent">Rotterdam</li>
 	  <li class="line"></li>
+	  
 	  <li class="city-item">Gorinchem</li>
 	  <li class="city-item">Amsterdam</li>
 	  <li class="city-item">Arnhem</li>
+	  <li class="city-item">Rotterdam</li>
 	  <li class="city-item">Utrecht</li>
 	</ul>
   </div>
+  
   
   
 <!-- end search -->
@@ -306,60 +305,61 @@
 
 		<div class="row" id="vacancies-container">
 
-			<!-- start vacancie item -->
-			<div class="col-lg-4 col-md-6">
-				<a href="vacancy-detail.html" class="vacancie-card">
-					<div class="vacancie-card__image-wrapper">
-						<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">			
-						<img src="img/v1.jpg" alt="" class="vacancie-card__image">
-					</div>
-					<div class="vacancie-card__content">
 
-						<div class="vacancie-card__wrapper">
-							<div class="title title--m">
-								Office manager
-							</div>
-
-							<div class="salary-location">
-
-								<div class="salary">
-									<img src="img/euro.svg" alt="">
-									3250 - <img src="img/euro.svg" alt=""> 4000
-								</div>
-
-								<div class="dot"></div>
-
-								<div class="location">
-									<img src="img/location.svg" alt=""> Rotterdam
-								</div>
-							</div>
-
-							<p class="vacancie-card__text">
-								Oversee daily office operations, manage schedules, and support administrative tasks to ensure smooth workflow.
-							</p>
-
+				<!-- start vacancie item -->
+				<div class="col-lg-4 col-md-6" data-category="Office" data-location="Rotterdam">
+					<a href="vacancy-detail.html" class="vacancie-card">
+						<div class="vacancie-card__image-wrapper">
+							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">			
+							<img src="img/v1.jpg" alt="" class="vacancie-card__image">
 						</div>
-						
-						<div class="vacancie-card__footer">
-
-							<div class="label">
-								<img src="img/briefcase.svg" alt="">
-								<span>Office</span>
-								
+						<div class="vacancie-card__content">
+	
+							<div class="vacancie-card__wrapper">
+								<div class="title title--m">
+									Office manager
+								</div>
+	
+								<div class="salary-location">
+	
+									<div class="salary">
+										<img src="img/euro.svg" alt="">
+										3250 - <img src="img/euro.svg" alt=""> 4000
+									</div>
+	
+									<div class="dot"></div>
+	
+									<div class="location">
+										<img src="img/location.svg" alt=""> Rotterdam
+									</div>
+								</div>
+	
+								<p class="vacancie-card__text">
+									Oversee daily office operations, manage schedules, and support administrative tasks to ensure smooth workflow.
+								</p>
+	
 							</div>
-
-							<div class="text-button text-button--lg">
-								Apply for a job										
+							
+							<div class="vacancie-card__footer">
+	
+								<div class="label">
+									<img src="img/briefcase.svg" alt="">
+									<span>Office</span>
+									
+								</div>
+	
+								<div class="text-button text-button--lg">
+									Apply for a job										
+								</div>
+	
 							</div>
-
 						</div>
-					</div>
-				</a>
-			</div>
-			<!-- end vacancie item -->
+					</a>
+				</div>
+				<!-- end vacancie item -->
 
-			<!-- start vacancie item -->
-			<div class="col-lg-4 col-md-6">
+					<!-- start vacancie item -->
+			<div class="col-lg-4 col-md-6" data-category="Marketing" data-location="Rotterdam">
 				<a href="vacancy-detail.html" class="vacancie-card">
 					<div class="vacancie-card__image-wrapper">
 						<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">					
@@ -382,7 +382,7 @@
 								<div class="dot"></div>
 
 								<div class="location">
-									<img src="img/location.svg" alt=""> Gorinchem
+									<img src="img/location.svg" alt=""> Rotterdam
 								</div>
 							</div>
 
@@ -411,7 +411,7 @@
 			<!-- end vacancie item -->
 
 			<!-- start vacancie item -->
-			<div class="col-lg-4 col-md-6">
+			<div class="col-lg-4 col-md-6" data-category="Business Development" data-location="Gorinchem">
 				<a href="vacancy-detail.html" class="vacancie-card">
 					<div class="vacancie-card__image-wrapper">
 						<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
@@ -488,7 +488,7 @@
 			<!-- end vacancie item -->
 
 				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6">
+				<div class="col-lg-4 col-md-6" data-category="Customer Support" data-location="Rotterdam">
 					<a href="vacancy-detail.html" class="vacancie-card">
 						<div class="vacancie-card__image-wrapper">
 							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">			
@@ -538,9 +538,9 @@
 					</a>
 				</div>
 				<!-- end vacancie item -->
-	
+
 				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6">
+				<div class="col-lg-4 col-md-6" data-category="Human Resources" data-location="Gorinchem">
 					<a href="vacancy-detail.html" class="vacancie-card">
 						<div class="vacancie-card__image-wrapper">
 							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">					
@@ -577,7 +577,7 @@
 	
 								<div class="label">
 									<img src="img/briefcase.svg" alt="">
-									<span>Marketing and Communications</span>
+									<span>Human Resources</span>
 									
 								</div>
 	
@@ -589,495 +589,391 @@
 						</div>
 					</a>
 				</div>
-				<!-- end vacancie item -->
-	
-				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6 hidden">
-					<a href="vacancy-detail.html" class="vacancie-card">
-						<div class="vacancie-card__image-wrapper">
-							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
-								<img src="img/v4.jpg" alt="" class="vacancie-card__image">
-						</div>
-					
-	
-						<div class="vacancie-card__content">
-	
-							<div class="vacancie-card__wrapper">
-								<div class="title title--m">
-									Business development manager
-								</div>
-	
-								<div class="salary-location">
-	
-									<div class="salary">
-										<img src="img/euro.svg" alt="">
-										4200 - <img src="img/euro.svg" alt=""> 4500
-									</div>
-	
-									<div class="dot"></div>
-	
-									<div class="location">
-										<img src="img/location.svg" alt=""> Gorinchem
-									</div>
-								</div>
-	
-								<p class="vacancie-card__text">
-									Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
-								</p>
-	
-							</div>
-							
-							<div class="vacancie-card__footer">
-	
-								<div class="label">
-									<img src="img/briefcase.svg" alt="">
-									<span>Business Development</span>
-									
-								</div>
-	
-								<div class="text-button text-button--lg">
-									Apply for a job									
-								</div>
-	
-							</div>
-						</div>
-					</a>
-				</div>
-				<!-- end vacancie item -->
+				<!-- end vacancie item -->	
 
 				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6 hidden">
-					<a href="vacancy-detail.html" class="vacancie-card">
-						<div class="vacancie-card__image-wrapper">
-							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
-								<img src="img/v4.jpg" alt="" class="vacancie-card__image">
-						</div>
-					
+<div class="col-lg-4 col-md-6 hidden" data-category="Human Resources" data-location="Gorinchem">
+	<a href="vacancy-detail.html" class="vacancie-card">
+		<div class="vacancie-card__image-wrapper">
+			<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
+				<img src="img/v4.jpg" alt="" class="vacancie-card__image">
+		</div>
 	
-						<div class="vacancie-card__content">
-	
-							<div class="vacancie-card__wrapper">
-								<div class="title title--m">
-									Business development manager
-								</div>
-	
-								<div class="salary-location">
-	
-									<div class="salary">
-										<img src="img/euro.svg" alt="">
-										4200 - <img src="img/euro.svg" alt=""> 4500
-									</div>
-	
-									<div class="dot"></div>
-	
-									<div class="location">
-										<img src="img/location.svg" alt=""> Gorinchem
-									</div>
-								</div>
-	
-								<p class="vacancie-card__text">
-									Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
-								</p>
-	
-							</div>
-							
-							<div class="vacancie-card__footer">
-	
-								<div class="label">
-									<img src="img/briefcase.svg" alt="">
-									<span>Business Development</span>
-									
-								</div>
-	
-								<div class="text-button text-button--lg">
-									Apply for a job									
-								</div>
-	
-							</div>
-						</div>
-					</a>
-				</div>
-				<!-- end vacancie item -->
 
-				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6 hidden">
-					<a href="vacancy-detail.html" class="vacancie-card">
-						<div class="vacancie-card__image-wrapper">
-							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
-								<img src="img/v4.jpg" alt="" class="vacancie-card__image">
-						</div>
-					
-	
-						<div class="vacancie-card__content">
-	
-							<div class="vacancie-card__wrapper">
-								<div class="title title--m">
-									Business development manager
-								</div>
-	
-								<div class="salary-location">
-	
-									<div class="salary">
-										<img src="img/euro.svg" alt="">
-										4200 - <img src="img/euro.svg" alt=""> 4500
-									</div>
-	
-									<div class="dot"></div>
-	
-									<div class="location">
-										<img src="img/location.svg" alt=""> Gorinchem
-									</div>
-								</div>
-	
-								<p class="vacancie-card__text">
-									Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
-								</p>
-	
-							</div>
-							
-							<div class="vacancie-card__footer">
-	
-								<div class="label">
-									<img src="img/briefcase.svg" alt="">
-									<span>Business Development</span>
-									
-								</div>
-	
-								<div class="text-button text-button--lg">
-									Apply for a job									
-								</div>
-	
-							</div>
-						</div>
-					</a>
-				</div>
-				<!-- end vacancie item -->
+		<div class="vacancie-card__content">
 
-				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6 hidden">
-					<a href="vacancy-detail.html" class="vacancie-card">
-						<div class="vacancie-card__image-wrapper">
-							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
-								<img src="img/v4.jpg" alt="" class="vacancie-card__image">
-						</div>
-					
-	
-						<div class="vacancie-card__content">
-	
-							<div class="vacancie-card__wrapper">
-								<div class="title title--m">
-									Business development manager
-								</div>
-	
-								<div class="salary-location">
-	
-									<div class="salary">
-										<img src="img/euro.svg" alt="">
-										4200 - <img src="img/euro.svg" alt=""> 4500
-									</div>
-	
-									<div class="dot"></div>
-	
-									<div class="location">
-										<img src="img/location.svg" alt=""> Gorinchem
-									</div>
-								</div>
-	
-								<p class="vacancie-card__text">
-									Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
-								</p>
-	
-							</div>
-							
-							<div class="vacancie-card__footer">
-	
-								<div class="label">
-									<img src="img/briefcase.svg" alt="">
-									<span>Business Development</span>
-									
-								</div>
-	
-								<div class="text-button text-button--lg">
-									Apply for a job									
-								</div>
-	
-							</div>
-						</div>
-					</a>
+			<div class="vacancie-card__wrapper">
+				<div class="title title--m">
+					Business development manager
 				</div>
-				<!-- end vacancie item -->
 
-				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6 hidden">
-					<a href="vacancy-detail.html" class="vacancie-card">
-						<div class="vacancie-card__image-wrapper">
-							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
-								<img src="img/v4.jpg" alt="" class="vacancie-card__image">
-						</div>
-					
-	
-						<div class="vacancie-card__content">
-	
-							<div class="vacancie-card__wrapper">
-								<div class="title title--m">
-									Business development manager
-								</div>
-	
-								<div class="salary-location">
-	
-									<div class="salary">
-										<img src="img/euro.svg" alt="">
-										4200 - <img src="img/euro.svg" alt=""> 4500
-									</div>
-	
-									<div class="dot"></div>
-	
-									<div class="location">
-										<img src="img/location.svg" alt=""> Gorinchem
-									</div>
-								</div>
-	
-								<p class="vacancie-card__text">
-									Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
-								</p>
-	
-							</div>
-							
-							<div class="vacancie-card__footer">
-	
-								<div class="label">
-									<img src="img/briefcase.svg" alt="">
-									<span>Business Development</span>
-									
-								</div>
-	
-								<div class="text-button text-button--lg">
-									Apply for a job									
-								</div>
-	
-							</div>
-						</div>
-					</a>
-				</div>
-				<!-- end vacancie item -->
+				<div class="salary-location">
 
-				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6 hidden">
-					<a href="vacancy-detail.html" class="vacancie-card">
-						<div class="vacancie-card__image-wrapper">
-							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
-								<img src="img/v4.jpg" alt="" class="vacancie-card__image">
-						</div>
-					
-	
-						<div class="vacancie-card__content">
-	
-							<div class="vacancie-card__wrapper">
-								<div class="title title--m">
-									Business development manager
-								</div>
-	
-								<div class="salary-location">
-	
-									<div class="salary">
-										<img src="img/euro.svg" alt="">
-										4200 - <img src="img/euro.svg" alt=""> 4500
-									</div>
-	
-									<div class="dot"></div>
-	
-									<div class="location">
-										<img src="img/location.svg" alt=""> Gorinchem
-									</div>
-								</div>
-	
-								<p class="vacancie-card__text">
-									Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
-								</p>
-	
-							</div>
-							
-							<div class="vacancie-card__footer">
-	
-								<div class="label">
-									<img src="img/briefcase.svg" alt="">
-									<span>Business Development</span>
-									
-								</div>
-	
-								<div class="text-button text-button--lg">
-									Apply for a job									
-								</div>
-	
-							</div>
-						</div>
-					</a>
-				</div>
-				<!-- end vacancie item -->
+					<div class="salary">
+						<img src="img/euro.svg" alt="">
+						4200 - <img src="img/euro.svg" alt=""> 4500
+					</div>
 
-				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6 hidden">
-					<a href="vacancy-detail.html" class="vacancie-card">
-						<div class="vacancie-card__image-wrapper">
-							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
-								<img src="img/v4.jpg" alt="" class="vacancie-card__image">
-						</div>
-					
-	
-						<div class="vacancie-card__content">
-	
-							<div class="vacancie-card__wrapper">
-								<div class="title title--m">
-									Business development manager
-								</div>
-	
-								<div class="salary-location">
-	
-									<div class="salary">
-										<img src="img/euro.svg" alt="">
-										4200 - <img src="img/euro.svg" alt=""> 4500
-									</div>
-	
-									<div class="dot"></div>
-	
-									<div class="location">
-										<img src="img/location.svg" alt=""> Gorinchem
-									</div>
-								</div>
-	
-								<p class="vacancie-card__text">
-									Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
-								</p>
-	
-							</div>
-							
-							<div class="vacancie-card__footer">
-	
-								<div class="label">
-									<img src="img/briefcase.svg" alt="">
-									<span>Business Development</span>
-									
-								</div>
-	
-								<div class="text-button text-button--lg">
-									Apply for a job									
-								</div>
-	
-							</div>
-						</div>
-					</a>
-				</div>
-				<!-- end vacancie item -->
+					<div class="dot"></div>
 
-				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6 hidden">
-					<a href="vacancy-detail.html" class="vacancie-card">
-						<div class="vacancie-card__image-wrapper">
-							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
-								<img src="img/v4.jpg" alt="" class="vacancie-card__image">
-						</div>
-					
-	
-						<div class="vacancie-card__content">
-	
-							<div class="vacancie-card__wrapper">
-								<div class="title title--m">
-									Business development manager
-								</div>
-	
-								<div class="salary-location">
-	
-									<div class="salary">
-										<img src="img/euro.svg" alt="">
-										4200 - <img src="img/euro.svg" alt=""> 4500
-									</div>
-	
-									<div class="dot"></div>
-	
-									<div class="location">
-										<img src="img/location.svg" alt=""> Gorinchem
-									</div>
-								</div>
-	
-								<p class="vacancie-card__text">
-									Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
-								</p>
-	
-							</div>
-							
-							<div class="vacancie-card__footer">
-	
-								<div class="label">
-									<img src="img/briefcase.svg" alt="">
-									<span>Business Development</span>
-									
-								</div>
-	
-								<div class="text-button text-button--lg">
-									Apply for a job									
-								</div>
-	
-							</div>
-						</div>
-					</a>
+					<div class="location">
+						<img src="img/location.svg" alt=""> Gorinchem
+					</div>
 				</div>
-				<!-- end vacancie item -->
 
-				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6 hidden">
-					<a href="vacancy-detail.html" class="vacancie-card">
-						<div class="vacancie-card__image-wrapper">
-							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
-								<img src="img/v4.jpg" alt="" class="vacancie-card__image">
-						</div>
-					
-	
-						<div class="vacancie-card__content">
-	
-							<div class="vacancie-card__wrapper">
-								<div class="title title--m">
-									Business development manager
-								</div>
-	
-								<div class="salary-location">
-	
-									<div class="salary">
-										<img src="img/euro.svg" alt="">
-										4200 - <img src="img/euro.svg" alt=""> 4500
-									</div>
-	
-									<div class="dot"></div>
-	
-									<div class="location">
-										<img src="img/location.svg" alt=""> Gorinchem
-									</div>
-								</div>
-	
-								<p class="vacancie-card__text">
-									Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
-								</p>
-	
-							</div>
-							
-							<div class="vacancie-card__footer">
-	
-								<div class="label">
-									<img src="img/briefcase.svg" alt="">
-									<span>Business Development</span>
-									
-								</div>
-	
-								<div class="text-button text-button--lg">
-									Apply for a job									
-								</div>
-	
-							</div>
-						</div>
-					</a>
-				</div>
-				<!-- end vacancie item -->
+				<p class="vacancie-card__text">
+					Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
+				</p>
+
+			</div>
 			
+			<div class="vacancie-card__footer">
 
+				<div class="label">
+					<img src="img/briefcase.svg" alt="">
+					<span>Human Resources</span>
+					
+				</div>
+
+				<div class="text-button text-button--lg">
+					Apply for a job									
+				</div>
+
+			</div>
+		</div>
+	</a>
+</div>
+<!-- end vacancie item -->
+
+<!-- start vacancie item -->
+<div class="col-lg-4 col-md-6 hidden" data-category="Business development" data-location="Gorinchem">
+	<a href="vacancy-detail.html" class="vacancie-card">
+		<div class="vacancie-card__image-wrapper">
+			<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
+				<img src="img/v4.jpg" alt="" class="vacancie-card__image">
+		</div>
+	
+
+		<div class="vacancie-card__content">
+
+			<div class="vacancie-card__wrapper">
+				<div class="title title--m">
+					Business development manager
+				</div>
+
+				<div class="salary-location">
+
+					<div class="salary">
+						<img src="img/euro.svg" alt="">
+						4200 - <img src="img/euro.svg" alt=""> 4500
+					</div>
+
+					<div class="dot"></div>
+
+					<div class="location">
+						<img src="img/location.svg" alt=""> Gorinchem
+					</div>
+				</div>
+
+				<p class="vacancie-card__text">
+					Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
+				</p>
+
+			</div>
+			
+			<div class="vacancie-card__footer">
+
+				<div class="label">
+					<img src="img/briefcase.svg" alt="">
+					<span>Business Development</span>
+					
+				</div>
+
+				<div class="text-button text-button--lg">
+					Apply for a job									
+				</div>
+
+			</div>
+		</div>
+	</a>
+</div>
+<!-- end vacancie item -->
+ 
+
+
+				<!-- start vacancie item -->
+<div class="col-lg-4 col-md-6 hidden" data-category="Business development" data-location="Gorinchem">
+	<a href="vacancy-detail.html" class="vacancie-card">
+		<div class="vacancie-card__image-wrapper">
+			<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
+				<img src="img/v4.jpg" alt="" class="vacancie-card__image">
+		</div>
+	
+
+		<div class="vacancie-card__content">
+
+			<div class="vacancie-card__wrapper">
+				<div class="title title--m">
+					Business development manager
+				</div>
+
+				<div class="salary-location">
+
+					<div class="salary">
+						<img src="img/euro.svg" alt="">
+						4200 - <img src="img/euro.svg" alt=""> 4500
+					</div>
+
+					<div class="dot"></div>
+
+					<div class="location">
+						<img src="img/location.svg" alt=""> Gorinchem
+					</div>
+				</div>
+
+				<p class="vacancie-card__text">
+					Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
+				</p>
+
+			</div>
+			
+			<div class="vacancie-card__footer">
+
+				<div class="label">
+					<img src="img/briefcase.svg" alt="">
+					<span>Business Development</span>
+					
+				</div>
+
+				<div class="text-button text-button--lg">
+					Apply for a job									
+				</div>
+
+			</div>
+		</div>
+	</a>
+</div>
+<!-- end vacancie item -->
+
+<!-- start vacancie item -->
+<div class="col-lg-4 col-md-6 hidden" data-category="Business development" data-location="Gorinchem">
+	<a href="vacancy-detail.html" class="vacancie-card">
+		<div class="vacancie-card__image-wrapper">
+			<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
+				<img src="img/v4.jpg" alt="" class="vacancie-card__image">
+		</div>
+	
+
+		<div class="vacancie-card__content">
+
+			<div class="vacancie-card__wrapper">
+				<div class="title title--m">
+					Business development manager
+				</div>
+
+				<div class="salary-location">
+
+					<div class="salary">
+						<img src="img/euro.svg" alt="">
+						4200 - <img src="img/euro.svg" alt=""> 4500
+					</div>
+
+					<div class="dot"></div>
+
+					<div class="location">
+						<img src="img/location.svg" alt=""> Gorinchem
+					</div>
+				</div>
+
+				<p class="vacancie-card__text">
+					Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
+				</p>
+
+			</div>
+			
+			<div class="vacancie-card__footer">
+
+				<div class="label">
+					<img src="img/briefcase.svg" alt="">
+					<span>Business Development</span>
+					
+				</div>
+
+				<div class="text-button text-button--lg">
+					Apply for a job									
+				</div>
+
+			</div>
+		</div>
+	</a>
+</div>
+<!-- end vacancie item -->
+
+<!-- start vacancie item -->
+<div class="col-lg-4 col-md-6 hidden" data-category="Business development" data-location="Gorinchem">
+	<a href="vacancy-detail.html" class="vacancie-card">
+		<div class="vacancie-card__image-wrapper">
+			<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
+				<img src="img/v4.jpg" alt="" class="vacancie-card__image">
+		</div>
+	
+
+		<div class="vacancie-card__content">
+
+			<div class="vacancie-card__wrapper">
+				<div class="title title--m">
+					Business development manager
+				</div>
+
+				<div class="salary-location">
+
+					<div class="salary">
+						<img src="img/euro.svg" alt="">
+						4200 - <img src="img/euro.svg" alt=""> 4500
+					</div>
+
+					<div class="dot"></div>
+
+					<div class="location">
+						<img src="img/location.svg" alt=""> Gorinchem
+					</div>
+				</div>
+
+				<p class="vacancie-card__text">
+					Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
+				</p>
+
+			</div>
+			
+			<div class="vacancie-card__footer">
+
+				<div class="label">
+					<img src="img/briefcase.svg" alt="">
+					<span>Business Development</span>
+					
+				</div>
+
+				<div class="text-button text-button--lg">
+					Apply for a job									
+				</div>
+
+			</div>
+		</div>
+	</a>
+</div>
+<!-- end vacancie item -->
+
+<!-- start vacancie item -->
+<div class="col-lg-4 col-md-6 hidden" data-category="Business development" data-location="Gorinchem">
+	<a href="vacancy-detail.html" class="vacancie-card">
+		<div class="vacancie-card__image-wrapper">
+			<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
+				<img src="img/v4.jpg" alt="" class="vacancie-card__image">
+		</div>
+	
+
+		<div class="vacancie-card__content">
+
+			<div class="vacancie-card__wrapper">
+				<div class="title title--m">
+					Business development manager
+				</div>
+
+				<div class="salary-location">
+
+					<div class="salary">
+						<img src="img/euro.svg" alt="">
+						4200 - <img src="img/euro.svg" alt=""> 4500
+					</div>
+
+					<div class="dot"></div>
+
+					<div class="location">
+						<img src="img/location.svg" alt=""> Gorinchem
+					</div>
+				</div>
+
+				<p class="vacancie-card__text">
+					Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
+				</p>
+
+			</div>
+			
+			<div class="vacancie-card__footer">
+
+				<div class="label">
+					<img src="img/briefcase.svg" alt="">
+					<span>Business Development</span>
+					
+				</div>
+
+				<div class="text-button text-button--lg">
+					Apply for a job									
+				</div>
+
+			</div>
+		</div>
+	</a>
+</div>
+<!-- end vacancie item -->
+
+<!-- start vacancie item -->
+<div class="col-lg-4 col-md-6 hidden" data-category="Business development" data-location="Gorinchem">
+	<a href="vacancy-detail.html" class="vacancie-card">
+		<div class="vacancie-card__image-wrapper">
+			<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">						
+				<img src="img/v4.jpg" alt="" class="vacancie-card__image">
+		</div>
+	
+
+		<div class="vacancie-card__content">
+
+			<div class="vacancie-card__wrapper">
+				<div class="title title--m">
+					Business development manager
+				</div>
+
+				<div class="salary-location">
+
+					<div class="salary">
+						<img src="img/euro.svg" alt="">
+						4200 - <img src="img/euro.svg" alt=""> 4500
+					</div>
+
+					<div class="dot"></div>
+
+					<div class="location">
+						<img src="img/location.svg" alt=""> Gorinchem
+					</div>
+				</div>
+
+				<p class="vacancie-card__text">
+					Identify new business opportunities, develop partnerships, and contribute to the company’s growth strategy. We believe that our business development ma.
+				</p>
+
+			</div>
+			
+			<div class="vacancie-card__footer">
+
+				<div class="label">
+					<img src="img/briefcase.svg" alt="">
+					<span>Business Development</span>
+					
+				</div>
+
+				<div class="text-button text-button--lg">
+					Apply for a job									
+				</div>
+
+			</div>
+		</div>
+	</a>
+</div>
+<!-- end vacancie item -->
+
+
+			  
+	
 		</div>
 
 		 <div class="loader hidden" id="loader"></div>
@@ -1088,6 +984,7 @@
 </div>
 <!-- end content  -->
 
+<!-- end filters content -->
 
 	<!-- start cta section -->
 	<section class="cta">
@@ -1463,6 +1360,122 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <!-- end city search -->
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+
+		<script>
+$(document).ready(function () {
+
+  const $grid = $('#vacancies-container').isotope({
+    itemSelector: '.col-lg-4', 
+    layoutMode: 'fitRows',
+  });
+
+
+  $('.custom-select input[type="checkbox"]').on('change', function () {
+    let filters = [];
+    $('.custom-select input[type="checkbox"]:checked').each(function () {
+      filters.push($(this).val());
+    });
+    const filterValue = filters.length > 0 ? filters.map(f => `[data-category*="${f}"]`).join(',') : '*';
+    $grid.isotope({ filter: filterValue });
+  });
+
+  $('.mobile-expertise-list .expertise-item').on('click', function () {
+
+    const category = $(this).text().trim();  
+    let filterValue = '';
+
+
+    if (category === 'All') {
+      filterValue = '*';
+    } else {
+      filterValue = `[data-category*="${category}"]`; 
+    }
+
+
+    $('.mobile-expertise-list .expertise-item').removeClass('active');
+    $(this).addClass('active');
+
+
+    $grid.isotope({ filter: filterValue });
+  });
+
+
+  $('.search-input').on('keyup', function () {
+    const searchText = $(this).val().toLowerCase();
+    $grid.isotope({
+      filter: function () {
+        const text = $(this).text().toLowerCase();
+        return text.includes(searchText);
+      },
+    });
+  });
+
+
+  const $cityInput = $('.search-city');
+  const $cityList = $('.city-list');
+
+  $cityInput.on('keyup', function () {
+    const city = $(this).val().toLowerCase();
+    $grid.isotope({
+      filter: function () {
+        const location = $(this).find('.location').text().toLowerCase();
+        return location.includes(city);
+      },
+    });
+
+  
+    const cityItems = $cityList.find('.city-item');
+    cityItems.each(function () {
+      const cityName = $(this).text().toLowerCase();
+      $(this).toggle(cityName.includes(city));
+    });
+  });
+
+
+  function updateRecentCity(city) {
+    const $recentCity = $cityList.find('.city-item--recent');
+    $recentCity.text(city);
+  }
+
+
+  $cityList.on('click', '.city-item', function () {
+    const selectedCity = $(this).text();
+    $cityInput.val(selectedCity); 
+    $cityList.hide(); 
+    updateRecentCity(selectedCity);
+    $grid.isotope({
+      filter: function () {
+        const location = $(this).find('.location').text().toLowerCase();
+        return location.includes(selectedCity.toLowerCase());
+      },
+    });
+  });
+
+
+  $cityInput.on('focus', function () {
+    $cityList.show();
+  });
+
+
+  $(document).on('click', function (e) {
+    if (!$(e.target).closest('.search-container').length) {
+      $cityList.hide();
+    }
+  });
+
+  $('.clear').on('click', function () {
+    $('.custom-select input[type="checkbox"]').prop('checked', false);
+    $('.search-input, .search-city').val('');
+    $grid.isotope({ filter: '*' });
+  });
+});
+
+
+</script>
+
 <!-- start loading cards -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1470,33 +1483,48 @@ document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader"); 
   const itemsPerScroll = 3; 
   let index = 0;
+
+  const $grid = $('#vacancies-container').isotope({
+    itemSelector: '.col-lg-4',
+    layoutMode: 'fitRows'
+  });
+
   function showMoreCards() {
-    loader.classList.remove("hidden"); 
+    loader.classList.remove("hidden");
 
     setTimeout(() => {
+ 
+      const newCards = [];
       for (let i = 0; i < itemsPerScroll; i++) {
         if (index < cards.length) {
           cards[index].classList.remove("hidden");
+          newCards.push(cards[index]);
           index++;
         }
       }
 
-      loader.classList.add("hidden"); 
+      const $newCards = $(newCards); 
+      $('#vacancies-container').append($newCards);
 
-    
+      loader.classList.add("hidden");
       if (index >= cards.length) {
         window.removeEventListener("scroll", onScroll);
-        loader.remove(); 
+        loader.remove();
       }
+      $grid.isotope('layout');
     }, 500); 
   }
+
   function onScroll() {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 800) {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 1000) {
       showMoreCards();
     }
   }
+
   window.addEventListener("scroll", onScroll);
 });
+
+
   </script>
 <!-- end loading cards -->
 
