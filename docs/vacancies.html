@@ -1528,6 +1528,46 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 <!-- end loading cards -->
 
+<script>
+	function setEqualHeights() {
+  // Проверяем, что ширина окна больше определённого значения (например, 992px для Bootstrap)
+  if (window.innerWidth > 992) {
+    const cards = document.querySelectorAll('.vacancie-card');
+    let maxHeight = 0;
+
+    // Сброс высоты, чтобы пересчитать корректно
+    cards.forEach(card => {
+      card.style.height = 'auto';
+    });
+
+    // Поиск максимальной высоты
+    cards.forEach(card => {
+      const cardHeight = card.offsetHeight;
+      if (cardHeight > maxHeight) {
+        maxHeight = cardHeight;
+      }
+    });
+
+    // Установка максимальной высоты для всех карточек
+    cards.forEach(card => {
+      card.style.height = `${maxHeight}px`;
+    });
+  } else {
+    // Сбрасываем высоту на мобильных устройствах
+    const cards = document.querySelectorAll('.vacancie-card');
+    cards.forEach(card => {
+      card.style.height = 'auto';
+    });
+  }
+}
+
+// Вызываем функцию при загрузке страницы и при изменении размера окна
+window.addEventListener('load', setEqualHeights);
+window.addEventListener('resize', setEqualHeights);
+
+
+</script>
+
 	<script src="js/main.js"></script>
 </body>
 </html>
