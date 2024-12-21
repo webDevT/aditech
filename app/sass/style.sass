@@ -93,7 +93,8 @@ p
 //end global style
 
 //start buttons style
-.button
+.button,
+form .btn
     position: relative
     display: inline-block
     background-color: #3498db
@@ -114,7 +115,8 @@ p
     svg 
         stroke: $white
         transition: all .3s
-.button--primary:after 
+.button--primary:after,
+form .btn:after
     content: ""
     width: 24px 
     height: 24px 
@@ -127,7 +129,8 @@ p
     background-repeat: no-repeat
     background-position: center
     display: block
-.button--primary:hover:after 
+.button--primary:hover:after,
+form .btn:hover:after
     background-image: url('../img/arrow-right-yellow.svg')
     transform: translateX(4px)
 .button--secondary:after
@@ -170,7 +173,8 @@ p
     transform: translateX(4px)
 .button span
     z-index: 5
-.button::before
+.button::before,
+form .btn::before
     content: ''
     position: absolute
     top: -5%
@@ -183,7 +187,8 @@ p
     transform-origin: bottom
     transition: transform 0.3s
     border-radius: inherit
-.button:hover::before
+.button:hover::before,
+form .btn:hover::before
     transform: scaleY(1)
 .button:hover
     color: $blue
@@ -195,7 +200,8 @@ p
 .button > *
     position: relative
     z-index: 2
-.button--primary
+.button--primary,
+form .btn
     background: $yellow
     color: #fff
     font-size: 18px 
@@ -290,7 +296,8 @@ p
         margin-left: 12px
 .button--m 
     font-size: 16px
-.button--xl:hover
+.button--xl:hover,
+form .btn
     svg 
         transform: translateX(4px) translateY(0px)
 .button--m:hover
@@ -1024,8 +1031,8 @@ p
     color: red
     cursor: pointer
     display: none
-input[type="checkbox"]
-    display: none
+// input[type="checkbox"]
+//     display: none
 .select-header.active
     border-color: $yellow
     .arrow 
@@ -1437,14 +1444,14 @@ input[type="checkbox"]:hover + .custom-checkbox
     margin-right: auto
     border-radius: 32px
     padding: 72px
-.form-label
+form .row label
     display: block
     margin-bottom: 8px
     span 
         color: $yellow
-.input,
-.textarea,
-.select
+form .form-control,
+form textarea,
+form select
     width: 100%
     font-size: 18px 
     font-family: $main-font
@@ -1468,15 +1475,15 @@ select::-ms-expand
     border-radius: 24px
     padding-top: 16px 
     padding-bottom: 16px
-.input:focus 
+form .form-control:focus 
     border: 1px solid $yellow
-.input-wrapper
+    box-shadow: none
+form .row label
     margin-top: 24px
-.form-row
+form .row
     display: flex 
     justify-content: space-between
-    .input-wrapper 
-        width: 48%
+
 .file-input-label 
     width: 100%
     padding: 16px
@@ -1738,30 +1745,30 @@ select::-ms-expand
     padding-bottom: 200px
 .radio-wrapper 
     margin-top: 16px
-input[type="radio"]
-    display: none
-.custom-radio
-    width: 20px 
-    height: 20px 
-    border: 2px solid #D2DCEB 
-    border-radius: 50%
-    position: relative
-    box-sizing: border-box
-    margin-right: 12px
-    cursor: pointer
-input[type="radio"]:checked + .custom-radio
-    border-color: $yellow
-    background-color: rgba($yellow, .08)
-input[type="radio"]:checked + .custom-radio:before 
-    content: ''
-    width: 8px
-    height: 8px 
-    background: $yellow 
-    border-radius: 50% 
-    position: absolute 
-    top: 50% 
-    left: 50% 
-    transform: translateX(-50%) translateY(-50%)
+// input[type="radio"]
+//     display: none
+// .custom-radio
+//     width: 20px 
+//     height: 20px 
+//     border: 2px solid #D2DCEB 
+//     border-radius: 50%
+//     position: relative
+//     box-sizing: border-box
+//     margin-right: 12px
+//     cursor: pointer
+// input[type="radio"]:checked + .custom-radio
+//     border-color: $yellow
+//     background-color: rgba($yellow, .08)
+// input[type="radio"]:checked + .custom-radio:before 
+//     content: ''
+//     width: 8px
+//     height: 8px 
+//     background: $yellow 
+//     border-radius: 50% 
+//     position: absolute 
+//     top: 50% 
+//     left: 50% 
+//     transform: translateX(-50%) translateY(-50%)
 .custom-date
     position: relative
     display: inline-block
@@ -1961,12 +1968,116 @@ input[type="radio"]:checked + .custom-radio:before
 .select-items::-webkit-scrollbar-thumb
     background: #D2DCEB
     border-radius: 5px 
-input[type="date"]::-webkit-calendar-picker-indicator
-    display: none
-    -webkit-appearance: none
+// input[type="date"]::-webkit-calendar-picker-indicator
+//     display: none
+//     -webkit-appearance: none
 //end custom select
 .vacancies-section .col-lg-4
     height: auto
+form .row
+    position: relative 
+    .text-muted
+        position: absolute 
+        bottom: -8px
+        left: 38px
+        font-size: 12px
+        font-weight: 300
+.freeform-fieldtype-radios
+    .form-check
+        margin-top: 16px
+.form-check-input
+    border: 1.5px solid #D2DCEB
+    cursor: pointer
+.form-check-input:checked:focus,
+.form-check-input:focus
+    box-shadow: none
+    border-color: #F08100
+    background: rgba(#F08100, .08)
+.form-check-input:checked
+    border-color: #F08100
+    background: rgba(#F08100, .08)
+    box-shadow: none
+.form-check-input
+    position: relative
+.form-check-input:checked:before 
+    content: ''
+    width: 7.5px 
+    height: 7.5px 
+    background: $yellow
+    border-radius: 50%
+    position: absolute 
+    top: 50% 
+    left: 50% 
+    transform: translateX(-50%) translateY(-50%)
+.form-check-input[type=radio] 
+    top: -3px
+.form-check-input.checkbox:checked:before
+    display: none
+.form-check-input.checkbox
+    background-color: #fff
+    top: -3px
+.form-check-input.checkbox:checked
+    background-image: url('../img/checkbox.svg')
+    background-position: center
+    background-repeat: no-repeat
+    background-color: rgba(#F08100, .08)
+.form-check-input.checkbox + label 
+    margin-top: 0
+    margin-bottom: 0 !important
+form .row .btn
+    display: flex 
+    justify-content: center 
+    align-items: center 
+    width: 270px
+    margin-left: auto 
+    margin-right: auto
+    max-width: 100%
+form .row .btn:hover 
+    color: $yellow
+    border-color: $yellow
+    background: $yellow
+    span 
+        color: $yellow
+        position: relative
+        z-index: 99
+form .row:last-child 
+    margin-top: 24px
+.form-select
+    background-position: right 25px center
+form textarea.form-control
+    height: 130px
+    border-radius: 24px
+    padding-top: 16px
+input[type="file"]
+    width: 100%
+    height: 100%
+    background: red
+    position: absolute 
+    top: 0 
+    left: 0 
+    width: 100% 
+    height: 100%
+    opacity: 0
+    padding: 16px
+    cursor: pointer
+form .freeform-file-dnd__input 
+    position: relative
+    min-height: 80px 
+    display: flex 
+    justify-content: center
+    align-items: center 
+    flex-direction: column
+    text-align: center
+    padding-top: 0px
+    border-radius: 10px
+    border: 2px dashed $yellow
+    cursor: pointer
+    .freeform-file-dnd__placeholder 
+        font-size: 18px 
+        color: $yellow
+    .text-sm 
+        font-size: 14px 
+        color: #686F7B
 @import "media"
 
 

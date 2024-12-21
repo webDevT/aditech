@@ -908,19 +908,18 @@
 				display: none
 	.form-wrapper
 		padding: 40px 16px
-	.form-row
+	form .row
 		flex-direction: column
-	.form-row .input-wrapper
+	form .row .label
 		width: 100%
-	.form-label
 		font-size: 16px
-	.input,
-	.textarea 
+	form .form-control,
+	form textarea 
 		font-size: 14px
-	.input 
+	form .form-control 
 		height: 48px
 		padding: 0 16px
-	.textarea 
+	form textarea 
 		padding-left: 16px 
 		padding-right: 16px
 	.form-footer
@@ -928,7 +927,7 @@
 	.footer
 		border-top-left-radius: 32px 
 		border-top-right-radius: 32px
-	.form-row .input-wrapper
+	form .row label
 		margin-top: 16px
 	.file-input__title
 		font-size: 16px
@@ -994,6 +993,8 @@
 	.benefits.vacancy-detais__item
 		.col-lg-6:nth-child(2) .item-photo
 			display: none
+	form .row label 
+		font-size: 16px
 	
 
 	
@@ -1029,6 +1030,10 @@
 		margin-top: 16px
 		.button 
 			margin-top: 24px
+	form textarea.form-control 
+		border-radius: 10px
+	form .freeform-file-dnd__input .freeform-file-dnd__placeholder
+		font-size: 16px
 	
 
 
