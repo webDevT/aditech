@@ -623,6 +623,21 @@
 	</footer>
 	<!-- end footer -->
 
+	<!-- start open application fixed button -->
+	<div class="open-application-fixed">
+		<div class="container-fluid">
+			<a href="#form" class="button button--xl button--primary">
+		<span>
+			Open Application
+		</span>				
+	</a>
+		</div>
+		
+	</div>
+	
+	<!-- end open application fixed button -->
+
+
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <!-- start custom select -->
@@ -788,6 +803,30 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 <!-- end loading cards -->
 
+<script>
+document.addEventListener('scroll', function () {
+    const openApplication = document.querySelector('.open-application-fixed');
+    const mainScreen = document.querySelector('.main-screen');
+    const formSection = document.querySelector('.form-section');
+
+  
+    const mainScreenMiddle = mainScreen.offsetHeight / 2 + mainScreen.getBoundingClientRect().top + window.scrollY;
+
+    
+    const formSectionTrigger = formSection.getBoundingClientRect().top + window.scrollY - 500;
+
+    const scrollPosition = window.scrollY;
+
+    if (scrollPosition >= mainScreenMiddle && scrollPosition < formSectionTrigger) {
+     
+        openApplication.classList.add('active');
+    } else {
+        
+        openApplication.classList.remove('active');
+    }
+});
+
+</script>
 	<script src="js/main.js"></script>
 </body>
 </html>

@@ -214,7 +214,7 @@
   <!-- end mobile cities list -->
 
 <!-- start custom select -->
-			<div class="custom-select">
+	<div class="custom-select">
   <div class="select-header">
     <span id="select-label">Select your Expertise</span>
     <span id="selected-count" class="selected-count"></span>
@@ -226,42 +226,48 @@
 	</span>
   </div>
   <ul class="select-options">
-    <li>
-      <label>
-        <input type="checkbox" value="Business Development" />
-        <span class="custom-checkbox"></span>
-        Business Development
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" value="Customer Support" />
-        <span class="custom-checkbox"></span>
-        Customer Support
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" value="Human Resources" />
-        <span class="custom-checkbox"></span>
-        Human Resources
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" value="Marketing" />
-        <span class="custom-checkbox"></span>
-        Marketing
-      </label>
-    </li>
-    <li>
-      <label>
-        <input type="checkbox" value="Office" />
-        <span class="custom-checkbox"></span>
-        Office
-      </label>
-    </li>
+	<li>
+	  <label>
+		<input type="checkbox" value="Business Development" />
+		<span class="custom-checkbox"></span>
+		Business Development
+		<span class="category-count">(0)</span>
+	  </label>
+	</li>
+	<li>
+	  <label>
+		<input type="checkbox" value="Customer Support" />
+		<span class="custom-checkbox"></span>
+		Customer Support
+		<span class="category-count">(0)</span>
+	  </label>
+	</li>
+	<li>
+	  <label>
+		<input type="checkbox" value="Human Resources" />
+		<span class="custom-checkbox"></span>
+		Human Resources
+		<span class="category-count">(0)</span>
+	  </label>
+	</li>
+	<li>
+	  <label>
+		<input type="checkbox" value="Marketing" />
+		<span class="custom-checkbox"></span>
+		Marketing
+		<span class="category-count">(0)</span>
+	  </label>
+	</li>
+	<li>
+	  <label>
+		<input type="checkbox" value="Office" />
+		<span class="custom-checkbox"></span>
+		Office
+		<span class="category-count">(0)</span>
+	  </label>
+	</li>
   </ul>
+  
 </div>
 <!-- end custom select -->
 
@@ -466,7 +472,7 @@
 
 			<!-- start vacancie item -->
 			<div class="col-lg-4 card-view-all col-md-6">
-				<a href="vacancy-detail.html" class="vacancie-card vacancie-card--yellow">
+				<a href="open-application.html" class="vacancie-card vacancie-card--yellow">
 
 					<div class="headeline headline--s">
 						Open <br>
@@ -488,7 +494,7 @@
 			<!-- end vacancie item -->
 
 				<!-- start vacancie item -->
-				<div class="col-lg-4 col-md-6" data-category="Customer Support" data-location="Rotterdam">
+				<div class="col-lg-4 col-md-6" data-category="Office" data-location="Rotterdam">
 					<a href="vacancy-detail.html" class="vacancie-card">
 						<div class="vacancie-card__image-wrapper">
 							<img src="img/arrow-orange.svg" alt="" class="vacancie-card__arrow">			
@@ -1244,6 +1250,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const selectedCount = document.getElementById("selected-count");
   const arrow = document.querySelector(".arrow");
   const clearButton = document.querySelector(".clear");
+  const vacanciesContainer = document.querySelector("#vacancies-container"); // Контейнер с вакансиями
+
   selectHeader.addEventListener("click", (e) => {
     if (e.target !== clearButton) {
       const isOpen = selectOptions.style.display === "block";
@@ -1253,6 +1261,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener("change", () => {
       updateSelectionState();
@@ -1294,18 +1303,27 @@ document.addEventListener("DOMContentLoaded", () => {
     selectOptions.querySelectorAll("li").forEach((li) => li.classList.remove("selected"));
   }
 
-
   function updateSelectionState() {
     const selected = Array.from(checkboxes).filter((cb) => cb.checked);
     if (selected.length > 0) {
+      const totalVacancies = calculateSelectedVacancies(selected.map((cb) => cb.value));
       selectLabel.textContent = "Select your Expertise";
-      selectedCount.textContent = `(${selected.length})`;
+      selectedCount.textContent = `(${totalVacancies})`; // Отображаем общее количество вакансий
       arrow.style.display = "none";
       clearButton.style.display = "inline";
       selectHeader.classList.add("active"); 
     } else {
       resetSelection();
     }
+  }
+
+  function calculateSelectedVacancies(selectedCategories) {
+    // Подсчитываем количество вакансий для выбранных категорий
+    let count = 0;
+    selectedCategories.forEach((category) => {
+      count += vacanciesContainer.querySelectorAll(`[data-category*="${category}"]`).length;
+    });
+    return count;
   }
 
   function hasSelectedCheckboxes() {
@@ -1322,6 +1340,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 </script>
 <!-- end custom seect -->
 
@@ -1364,117 +1383,152 @@ document.addEventListener("DOMContentLoaded", () => {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 
-		<script>
-$(document).ready(function () {
-
-  const $grid = $('#vacancies-container').isotope({
-    itemSelector: '.col-lg-4', 
-    layoutMode: 'fitRows',
-  });
 
 
-  $('.custom-select input[type="checkbox"]').on('change', function () {
-    let filters = [];
-    $('.custom-select input[type="checkbox"]:checked').each(function () {
-      filters.push($(this).val());
-    });
-    const filterValue = filters.length > 0 ? filters.map(f => `[data-category*="${f}"]`).join(',') : '*';
-    $grid.isotope({ filter: filterValue });
-  });
-
-  $('.mobile-expertise-list .expertise-item').on('click', function () {
-
-    const category = $(this).text().trim();  
-    let filterValue = '';
-
-
-    if (category === 'All') {
-      filterValue = '*';
-    } else {
-      filterValue = `[data-category*="${category}"]`; 
-    }
-
-
-    $('.mobile-expertise-list .expertise-item').removeClass('active');
-    $(this).addClass('active');
-
-
-    $grid.isotope({ filter: filterValue });
-  });
-
-
-  $('.search-input').on('keyup', function () {
-    const searchText = $(this).val().toLowerCase();
-    $grid.isotope({
-      filter: function () {
-        const text = $(this).text().toLowerCase();
-        return text.includes(searchText);
-      },
-    });
-  });
-
-
-  const $cityInput = $('.search-city');
-  const $cityList = $('.city-list');
-
-  $cityInput.on('keyup', function () {
-    const city = $(this).val().toLowerCase();
-    $grid.isotope({
-      filter: function () {
-        const location = $(this).find('.location').text().toLowerCase();
-        return location.includes(city);
-      },
-    });
-
+<script>
+	$(document).ready(function () {
+	  const $grid = $('#vacancies-container').isotope({
+		itemSelector: '.col-lg-4',
+		layoutMode: 'fitRows',
+	  });
   
-    const cityItems = $cityList.find('.city-item');
-    cityItems.each(function () {
-      const cityName = $(this).text().toLowerCase();
-      $(this).toggle(cityName.includes(city));
-    });
-  });
-
-
-  function updateRecentCity(city) {
-    const $recentCity = $cityList.find('.city-item--recent');
-    $recentCity.text(city);
-  }
-
-
-  $cityList.on('click', '.city-item', function () {
-    const selectedCity = $(this).text();
-    $cityInput.val(selectedCity); 
-    $cityList.hide(); 
-    updateRecentCity(selectedCity);
-    $grid.isotope({
-      filter: function () {
-        const location = $(this).find('.location').text().toLowerCase();
-        return location.includes(selectedCity.toLowerCase());
-      },
-    });
-  });
-
-
-  $cityInput.on('focus', function () {
-    $cityList.show();
-  });
-
-
-  $(document).on('click', function (e) {
-    if (!$(e.target).closest('.search-container').length) {
-      $cityList.hide();
-    }
-  });
-
-  $('.clear').on('click', function () {
-    $('.custom-select input[type="checkbox"]').prop('checked', false);
-    $('.search-input, .search-city').val('');
-    $grid.isotope({ filter: '*' });
-  });
-});
-
-
-</script>
+	  function updateCategoryCounts() {
+		$('.select-options li input[type="checkbox"]').each(function () {
+		  const category = $(this).val();
+		  const count = $grid.find(`[data-category*="${category}"]:not(.card-view-all)`).length;
+		  $(this).closest('label').find('.category-count').text(`(${count})`);
+		});
+	  }
+  
+	  function updateHeadlineAndVisibility() {
+		const visibleItems = $grid.data('isotope').filteredItems.filter(item => !$(item.element).hasClass('card-view-all')).length;
+		const $headline = $('.headline.headline--s');
+		const $cardViewAll = $('.card-view-all');
+  
+		if (visibleItems === 0) {
+		  $headline.html('<span class="headline-s-span">Oops, no open positions(</span>');
+		} else {
+		  $headline.html(
+			`<span class="headline-s-span">There’re </span><span>${visibleItems}</span> open positions`
+		  );
+		}
+  
+		$cardViewAll.show();
+	  }
+  
+	  function updateFilters() {
+		const searchText = $('.search-input').val().toLowerCase();
+		const city = $('.search-city').val().toLowerCase();
+  
+		let expertiseFilters = [];
+		if ($(window).width() < 768) {
+		  // Mobile expertise list active filter
+		  expertiseFilters = $('.mobile-expertise-list .expertise-item.active')
+			.map(function () {
+			  return $(this).text().trim();
+			})
+			.get();
+		} else {
+		  // Desktop custom-select active filters
+		  $('.custom-select input[type="checkbox"]:checked').each(function () {
+			expertiseFilters.push($(this).val());
+		  });
+		}
+  
+		$grid.isotope({
+		  filter: function () {
+			const $this = $(this);
+  
+			if ($this.hasClass('card-view-all')) {
+			  return true;
+			}
+  
+			const text = $this.text() ? $this.text().toLowerCase() : '';
+			const location = $this.find('.location').text()
+			  ? $this.find('.location').text().toLowerCase()
+			  : '';
+			const category = $this.attr('data-category') || '';
+  
+			const matchesSearch = text.includes(searchText);
+			const matchesCity = location.includes(city);
+			const matchesExpertise = expertiseFilters.length === 0 || expertiseFilters.some(f => category.includes(f));
+  
+			return matchesSearch && matchesCity && matchesExpertise;
+		  }
+		});
+  
+		updateCategoryCounts();
+		updateHeadlineAndVisibility();
+	  }
+  
+	  function initMobileExpertiseList() {
+		$('.mobile-expertise-list .expertise-item').on('click', function () {
+		  $('.mobile-expertise-list .expertise-item').removeClass('active');
+		  $(this).addClass('active');
+		  updateFilters();
+		});
+	  }
+  
+	  function toggleFilterView() {
+		if ($(window).width() < 768) {
+		  $('.custom-select').hide();
+		  $('.mobile-expertise-list').show();
+		} else {
+		  $('.mobile-expertise-list').hide();
+		  $('.custom-select').show();
+		}
+	  }
+  
+	  // Initial setup
+	  toggleFilterView();
+	  initMobileExpertiseList();
+	  updateCategoryCounts();
+	  updateHeadlineAndVisibility();
+  
+	  // Reapply filters on resize
+	  $(window).on('resize', function () {
+		toggleFilterView();
+		updateFilters();
+	  });
+  
+	  // Event handlers for desktop filters
+	  $('.custom-select input[type="checkbox"]').on('change', updateFilters);
+	  $('.search-input').on('keyup', updateFilters);
+	  $('.search-city').on('keyup', updateFilters);
+  
+	  $('.city-list').on('click', '.city-item', function () {
+		const selectedCity = $(this).text();
+		$('.search-city').val(selectedCity);
+		$('.city-list').hide();
+		updateFilters();
+	  });
+  
+	  $('.search-city').on('focus', function () {
+		$('.city-list').show();
+	  });
+  
+	  $(document).on('click', function (e) {
+		if (!$(e.target).closest('.search-container').length) {
+		  $('.city-list').hide();
+		}
+	  });
+  
+	  $('.clear').on('click', function () {
+		$('.custom-select input[type="checkbox"]').prop('checked', false);
+		$('.search-input, .search-city').val('');
+		$('.mobile-expertise-list .expertise-item').removeClass('active');
+		$('.mobile-expertise-list .expertise-item:first-child').addClass('active'); // Reset to "All"
+		$grid.isotope({ filter: '*' });
+		updateCategoryCounts();
+		updateHeadlineAndVisibility();
+	  });
+	});
+  </script>
+  
+  
+	
+	
+	
 
 <!-- start loading cards -->
 <script>

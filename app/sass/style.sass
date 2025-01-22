@@ -2078,6 +2078,111 @@ form .freeform-file-dnd__input
     .text-sm 
         font-size: 14px 
         color: #686F7B
+
+//start new styles
+.salary-location
+    display: flex
+    justify-content: space-between
+    font-size: 17px
+.dot
+    margin-left: 8px
+    margin-right: 8px
+.features .card--yellow
+    background-color: #f08100
+    background-image: url('../img/corner-black.svg')
+    background-repeat: no-repeat
+    background-position: top 30px right 30px
+.features .card--photo
+    padding: 0
+.features .card__title
+    margin-bottom: 20px
+    margin-top: 40px
+.job-photo
+    //transform: rotate(0)
+.job-section .benefits-list .col-lg-4:nth-child(2) 
+    transform: rotate(0)
+    display: flex 
+    justify-content: flex-end
+
+//start open application fixed
+.open-application-fixed 
+    display: none
+//end open application fixed
+.process__item-content
+    padding-right: 30px
+.process__item-img
+    height: 170px 
+    min-width: 250px
+@media only screen and (max-width : 992px)
+    .features .card__title
+        margin-top: 0
+        margin-bottom: 3vw
+@media only screen and (max-width : 768px)
+    .vacancies-page-section .vacancie-card--yellow .button
+        margin-top: 0 !important
+    .vacancies-page-section .vacancie-card--yellow .headeline--mobile 
+        margin-top: 75px !important
+    .open-application-fixed 
+        position: fixed
+        bottom: 32px
+        left: 0
+        z-index: 999
+        width: 100%
+    .open-application-fixed.active 
+        display: block
+    .sidebar-fixed
+        display: none
+        background: #fff 
+        z-index: 999 
+        position: fixed 
+        bottom: 0 
+        left: 0 
+        width: 100%
+        padding-left: 16px 
+        padding-right: 16px
+        padding-top: 16px
+        border-top-left-radius: 16px 
+        border-top-right-radius: 16px
+        border-top: 1px solid #D2DCEB
+        .text--grey 
+            display: none
+        .sidebar__header
+            display: block
+            border-bottom: none 
+            padding-bottom: 0
+            margin-bottom: 12px
+        .sidebar__info
+            display: block
+        .sidebar__info
+            display: flex 
+            align-items: center
+        .sidebar__info
+            font-size: 14px
+            margin-bottom: 0
+            img 
+                height: 15px
+                margin-right: 10px
+        .sidebar-title 
+            font-size: 18px
+.sidebar .sidebar-fixed .vacancie-details__buttons 
+    display: block
+    .button--whats-app
+        display: none
+    .button 
+        margin-left: auto 
+        margin-right: auto
+.sidebar .vacancie-details__buttons .button
+    margin-top: 12px
+    margin-bottom: 12px
+.sidebar-fixed.active 
+    display: block
+//end new styles
+.custom-select
+    input 
+        display: none
+
+
+    
 @import "media"
 
 

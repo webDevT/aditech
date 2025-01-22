@@ -109,7 +109,7 @@
 
 				</div>
 <div class="header-mobile-button">
-					<a href="" class="button">
+					<a href="open-application.html" class="button">
 						Open Application
 					</a>
 				</div>
@@ -132,7 +132,7 @@
 			</div>
 
 			
-			<a href="" class="button">
+			<a href="open-application.html" class="button">
 				<span>Open Application</span>
 				
 			</a>
@@ -234,7 +234,7 @@
 			<div class="item">
 			
 					<div class="item__icon">
-						<img src="img/salaryIcon.svg" alt="">
+						<img src="img/handshake-solid.svg" alt="">
 					</div>
 
 					<div class="title title--xl title--yellow">
@@ -250,7 +250,7 @@
 				<div class="item">
 			
 					<div class="item__icon">
-						<img src="img/salaryIcon2.svg" alt="">
+						<img src="img/person-rays.svg" alt="">
 					</div>
 
 					<div class="title title--xl title--yellow">
@@ -272,7 +272,7 @@
 			<div class="item">
 			
 				<div class="item__icon">
-					<img src="img/salaryIcon3.svg" alt="">
+					<img src="img/chart-up.svg" alt="">
 				</div>
 
 				<div class="title title--xl title--yellow">
@@ -287,7 +287,7 @@
 			<div class="item">
 			
 				<div class="item__icon">
-					<img src="img/salaryIcon4.svg" alt="">
+					<img src="img/scale.svg" alt="">
 				</div>
 
 				<div class="title title--xl title--yellow">
@@ -454,7 +454,8 @@
 	<div class="sidebar">
 		<div class="item">
 
-			<div class="sidebar__header">
+			<div class="sidebar-fixed">
+				<div class="sidebar__header">
 				<div class="title title--xl">
 					Customer service consultant
 				</div>
@@ -483,7 +484,7 @@
 
 			<div class="vacancie-details__buttons">
 
-				<a href="" class="button button--lg button--primary">
+				<a href="#form-section" class="button button--lg button--primary">
 					<span>
 						Apply for this job
 					</span>				
@@ -495,6 +496,8 @@
 					</span>				
 				</a>
 			</div>
+			</div>
+			
 
 			<div class="sidebar__contact">
 				<img src="img/avatar.png" alt="">
@@ -540,7 +543,7 @@
 <!-- end content  -->
 
 <!-- start form section -->
-<section class="form-section">
+<section class="form-section" id="form-section">
 	<div class="container">
 		<div class="form-wrapper">
 			<div class="headline headline--s">
@@ -1052,6 +1055,33 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 <!-- end loading cards -->
 
+
 	<script src="js/main.js"></script>
+
+	<script>
+		document.addEventListener('scroll', function () {
+			const openApplication = document.querySelector('.sidebar-fixed');
+			const mainScreen = document.querySelector('.main-screen');
+			const formSection = document.querySelector('.form-section');
+		
+		  
+			const mainScreenMiddle = mainScreen.offsetHeight / 2 + mainScreen.getBoundingClientRect().top + window.scrollY;
+		
+			
+			const formSectionTrigger = formSection.getBoundingClientRect().top + window.scrollY - 500;
+		
+			const scrollPosition = window.scrollY;
+		
+			if (scrollPosition >= mainScreenMiddle && scrollPosition < formSectionTrigger) {
+			 
+				openApplication.classList.add('active');
+			} else {
+				
+				openApplication.classList.remove('active');
+			}
+		});
+		
+		</script>
+
 </body>
 </html>
