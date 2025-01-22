@@ -1240,109 +1240,7 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<!-- start custom select -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const selectHeader = document.querySelector(".select-header");
-  const selectLabel = document.getElementById("select-label");
-  const selectOptions = document.querySelector(".select-options");
-  const checkboxes = selectOptions.querySelectorAll("input[type='checkbox']");
-  const selectedCount = document.getElementById("selected-count");
-  const arrow = document.querySelector(".arrow");
-  const clearButton = document.querySelector(".clear");
-  const vacanciesContainer = document.querySelector("#vacancies-container"); // Контейнер с вакансиями
 
-  selectHeader.addEventListener("click", (e) => {
-    if (e.target !== clearButton) {
-      const isOpen = selectOptions.style.display === "block";
-      selectOptions.style.display = isOpen ? "none" : "block";
-      if (!hasSelectedCheckboxes()) {
-        selectHeader.classList.toggle("active", !isOpen);
-      }
-    }
-  });
-
-  checkboxes.forEach((checkbox) => {
-    checkbox.addEventListener("change", () => {
-      updateSelectionState();
-      const parent = checkbox.closest("ul");
-      const selected = Array.from(checkboxes)
-        .filter((cb) => cb.checked)
-        .map((cb) => cb.value);
-
-      selected.forEach((value) => {
-        const item = Array.from(parent.children).find(
-          (li) => li.textContent.trim() === value
-        );
-        if (item) parent.prepend(item);
-      });
-      parent.querySelectorAll("li").forEach((li) => {
-        const cb = li.querySelector("input[type='checkbox']");
-        if (cb && cb.checked) {
-          li.classList.add("selected");
-        } else {
-          li.classList.remove("selected");
-        }
-      });
-    });
-  });
-
-  clearButton.addEventListener("click", () => {
-    checkboxes.forEach((checkbox) => {
-      checkbox.checked = false;
-    });
-    resetSelection();
-  });
-
-  function resetSelection() {
-    selectLabel.textContent = "Select your Expertise";
-    selectedCount.textContent = "";
-    arrow.style.display = "inline";
-    clearButton.style.display = "none";
-    selectHeader.classList.remove("active");
-    selectOptions.querySelectorAll("li").forEach((li) => li.classList.remove("selected"));
-  }
-
-  function updateSelectionState() {
-    const selected = Array.from(checkboxes).filter((cb) => cb.checked);
-    if (selected.length > 0) {
-      const totalVacancies = calculateSelectedVacancies(selected.map((cb) => cb.value));
-      selectLabel.textContent = "Select your Expertise";
-      selectedCount.textContent = `(${totalVacancies})`; // Отображаем общее количество вакансий
-      arrow.style.display = "none";
-      clearButton.style.display = "inline";
-      selectHeader.classList.add("active"); 
-    } else {
-      resetSelection();
-    }
-  }
-
-  function calculateSelectedVacancies(selectedCategories) {
-    // Подсчитываем количество вакансий для выбранных категорий
-    let count = 0;
-    selectedCategories.forEach((category) => {
-      count += vacanciesContainer.querySelectorAll(`[data-category*="${category}"]`).length;
-    });
-    return count;
-  }
-
-  function hasSelectedCheckboxes() {
-    return Array.from(checkboxes).some((checkbox) => checkbox.checked);
-  }
-
-  document.addEventListener("click", (e) => {
-    if (!selectHeader.contains(e.target) && !selectOptions.contains(e.target)) {
-      selectOptions.style.display = "none";
-
-      if (!hasSelectedCheckboxes()) {
-        selectHeader.classList.remove("active");
-      }
-    }
-  });
-});
-
-</script>
-<!-- end custom seect -->
 
 <!-- start city search -->
 <script>
@@ -1392,14 +1290,46 @@ document.addEventListener("DOMContentLoaded", () => {
 		layoutMode: 'fitRows',
 	  });
   
-	  function updateCategoryCounts() {
-		$('.select-options li input[type="checkbox"]').each(function () {
-		  const category = $(this).val();
-		  const count = $grid.find(`[data-category*="${category}"]:not(.card-view-all)`).length;
-		  $(this).closest('label').find('.category-count').text(`(${count})`);
-		});
-	  }
-  
+	  document.addEventListener("DOMContentLoaded", function () {
+  // Сначала выполняем updateCategoryCounts, чтобы значения обновились
+  updateCategoryCounts();
+
+  // После этого сортируем элементы списка
+  sortList();
+});
+
+function updateCategoryCounts() {
+  $('.select-options li input[type="checkbox"]').each(function () {
+    const category = $(this).val();
+    const count = $grid.find(`[data-category*="${category}"]:not(.card-view-all)`).length;
+    $(this).closest('label').find('.category-count').text(`(${count})`);
+  });
+}
+
+function sortList() {
+  const list = document.getElementById("options-list");
+  const items = Array.from(list.children);
+
+  // Сортируем элементы: сначала с классом "selected", затем по убыванию значения "data-category-count"
+  items.sort((a, b) => {
+    const isSelectedA = a.classList.contains("selected") ? 1 : 0;
+    const isSelectedB = b.classList.contains("selected") ? 1 : 0;
+
+    // Сортировка по selected
+    if (isSelectedA !== isSelectedB) {
+      return isSelectedB - isSelectedA;
+    }
+
+    // Если оба или ни один не selected, сортируем по data-category-count
+    const countA = parseInt(a.getAttribute("data-category-count"), 10);
+    const countB = parseInt(b.getAttribute("data-category-count"), 10);
+    return countB - countA;
+  });
+
+  // Перерисовываем элементы в правильном порядке
+  items.forEach(item => list.appendChild(item));
+}
+
 	  function updateHeadlineAndVisibility() {
 		const visibleItems = $grid.data('isotope').filteredItems.filter(item => !$(item.element).hasClass('card-view-all')).length;
 		const $headline = $('.headline.headline--s');
@@ -1621,6 +1551,148 @@ window.addEventListener('resize', setEqualHeights);
 
 
 </script>
+
+<!-- Start Custom Select -->
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+	  const selectHeader = document.querySelector(".select-header");
+	  const selectLabel = document.getElementById("select-label");
+	  const selectOptions = document.querySelector(".select-options");
+	  const checkboxes = selectOptions.querySelectorAll("input[type='checkbox']");
+	  const selectedCount = document.getElementById("selected-count");
+	  const arrow = document.querySelector(".arrow");
+	  const clearButton = document.querySelector(".clear");
+	  const vacanciesContainer = document.querySelector("#vacancies-container"); 
+  
+	
+	  selectHeader.addEventListener("click", (e) => {
+		if (e.target !== clearButton) {
+		  const isOpen = selectOptions.style.display === "block";
+		  selectOptions.style.display = isOpen ? "none" : "block";
+		  if (!hasSelectedCheckboxes()) {
+			selectHeader.classList.toggle("active", !isOpen);
+		  }
+		}
+	  });
+  
+	 
+	  checkboxes.forEach((checkbox) => {
+		checkbox.addEventListener("change", () => {
+		  updateSelectionState();
+		  sortOptions(); 
+		});
+	  });
+  
+	
+	  clearButton.addEventListener("click", () => {
+		checkboxes.forEach((checkbox) => {
+		  checkbox.checked = false;
+		});
+		resetSelection();
+		sortOptions(); 
+	  });
+  
+	 
+	  function resetSelection() {
+		selectLabel.textContent = "Select your Expertise";
+		selectedCount.textContent = "";
+		arrow.style.display = "inline";
+		clearButton.style.display = "none";
+		selectHeader.classList.remove("active");
+		selectOptions.querySelectorAll("li").forEach((li) => li.classList.remove("selected"));
+	  }
+  
+
+	  function updateSelectionState() {
+		const selected = Array.from(checkboxes).filter((cb) => cb.checked);
+		if (selected.length > 0) {
+		  const totalVacancies = calculateSelectedVacancies(selected.map((cb) => cb.value));
+		  selectLabel.textContent = "Select your Expertise";
+		  selectedCount.textContent = `(${totalVacancies})`;
+		  arrow.style.display = "none";
+		  clearButton.style.display = "inline";
+		  selectHeader.classList.add("active");
+		} else {
+		  resetSelection();
+		}
+	  }
+  
+	  
+	  function calculateSelectedVacancies(selectedCategories) {
+		let count = 0;
+		selectedCategories.forEach((category) => {
+		  count += vacanciesContainer.querySelectorAll(`[data-category*="${category}"]`).length;
+		});
+		return count;
+	  }
+  
+	  
+	  function hasSelectedCheckboxes() {
+		return Array.from(checkboxes).some((checkbox) => checkbox.checked);
+	  }
+  
+	 
+	  function sortOptions() {
+		const items = Array.from(selectOptions.querySelectorAll("li"));
+  
+		items.sort((a, b) => {
+	
+		  const isSelectedA = a.querySelector("input[type='checkbox']").checked ? -1 : 0;
+		  const isSelectedB = b.querySelector("input[type='checkbox']").checked ? -1 : 0;
+  
+		  if (isSelectedA !== isSelectedB) {
+			return isSelectedA - isSelectedB; 
+		  }
+  
+		
+		  const countA = parseInt(a.querySelector(".category-count").textContent.replace(/[()]/g, "")) || 0;
+		  const countB = parseInt(b.querySelector(".category-count").textContent.replace(/[()]/g, "")) || 0;
+  
+		  return countB - countA; 
+		});
+  
+		
+		items.forEach((item) => {
+		  const checkbox = item.querySelector("input[type='checkbox']");
+		  if (checkbox.checked) {
+			item.classList.add("selected");
+		  } else {
+			item.classList.remove("selected");
+		  }
+		  selectOptions.appendChild(item);
+		});
+	  }
+  
+
+	  document.addEventListener("click", (e) => {
+		if (!selectHeader.contains(e.target) && !selectOptions.contains(e.target)) {
+		  selectOptions.style.display = "none";
+  
+		  if (!hasSelectedCheckboxes()) {
+			selectHeader.classList.remove("active");
+		  }
+		}
+	  });
+  
+	
+	  updateCategoryCounts();
+	  sortOptions();
+	});
+  
+
+	function updateCategoryCounts() {
+	  const vacanciesContainer = document.querySelector("#vacancies-container");
+	  document.querySelectorAll(".select-options li input[type='checkbox']").forEach((checkbox) => {
+		const category = checkbox.value;
+		const count = vacanciesContainer.querySelectorAll(`[data-category*="${category}"]:not(.card-view-all)`).length;
+		checkbox.closest("label").querySelector(".category-count").textContent = `(${count})`;
+	  });
+	}
+  </script>
+  <!-- End Custom Select -->
+  
+  
+  
 
 	<script src="js/main.js"></script>
 </body>

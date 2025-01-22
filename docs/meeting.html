@@ -23,11 +23,11 @@
 <body>
 <style>
 	.flatpickr-time .flatpickr-time-list {
-    max-height: 200px; /* Устанавливаем видимую высоту (примерно для 7 строк) */
-    overflow-y: auto;  /* Добавляем прокрутку для длинного списка */
+    max-height: 200px; 
+    overflow-y: auto; 
 }
 
-/* Убираем ограничение высоты Flatpickr */
+
 .flatpickr-time .flatpickr-time-container {
     height: auto;
 }
@@ -170,7 +170,7 @@
 		</h2>
 
 		<div class="main-screen__button-wrapper">
-			<a href="" class="button button--xl button--primary">
+			<a href="#form" class="button button--xl button--primary">
 			<span>
 				Schedule a Meeting
 			</span>				
@@ -356,7 +356,7 @@
 <!-- end video section -->
 
 <!-- start form section -->
-<section class="form-section form-section--job">
+<section class="form-section form-section--job" id="form">
 	<div class="container">
 		<div class="form-wrapper">
 			<div class="headline headline--s">
@@ -758,6 +758,19 @@
 	</footer>
 	<!-- end footer -->
 
+	<!-- start open application fixed button -->
+	<div class="open-application-fixed">
+		<div class="container-fluid">
+			<a href="#form" class="button button--xl button--primary">
+		<span>
+			Schedule a Meeting
+		</span>				
+	</a>
+		</div>		
+	</div>
+	<!-- end open application fixed button -->
+
+
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <!-- start custom select -->
@@ -1064,6 +1077,29 @@ document.addEventListener("click", closeAllSelect);
 </script>
 	<script src="js/main.js"></script>
 
-
+	<script>
+		document.addEventListener('scroll', function () {
+			const openApplication = document.querySelector('.open-application-fixed');
+			const mainScreen = document.querySelector('.main-screen');
+			const formSection = document.querySelector('.form-section');
+		
+		  
+			const mainScreenMiddle = mainScreen.offsetHeight / 2 + mainScreen.getBoundingClientRect().top + window.scrollY;
+		
+			
+			const formSectionTrigger = formSection.getBoundingClientRect().top + window.scrollY - 500;
+		
+			const scrollPosition = window.scrollY;
+		
+			if (scrollPosition >= mainScreenMiddle && scrollPosition < formSectionTrigger) {
+			 
+				openApplication.classList.add('active');
+			} else {
+				
+				openApplication.classList.remove('active');
+			}
+		});
+		
+		</script>
 </body>
 </html>
