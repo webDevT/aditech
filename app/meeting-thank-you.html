@@ -347,6 +347,13 @@
 <section class="form-section form-section--job">
 	<div class="container">
 		
+		<div class="form-wrapper">
+			<div class="headline headline--s">
+				Open sollicitatie
+			</div>
+
+			<!-- start form -->
+			<form novalidate="" method="post" data-freeform="" data-id="07e940-form-DZzARNAg0-4Jdov5nm5-SxocV9dtaVy08Vo1IbUb8h2t4OXFsKz8wLhYo5rW" data-handle="test" data-ajax="" data-disable-submit="" data-show-processing-spinner="" enctype="multipart/form-data" data-auto-scroll="" data-show-processing-text="" data-processing-text="Processing..." data-success-message="Form has been submitted successfully!" data-error-message="Sorry, there was an error submitting the form. Please try again." class="freeform-form" data-freeform-bootstrap="">
 
 		<div class="form-thank-you-wrapper">
 
@@ -364,6 +371,9 @@
 			</p>
 			</div>
 			
+		</div>
+
+		</form>
 		</div>
 	</div>
 </section>
@@ -752,7 +762,19 @@ document.addEventListener("DOMContentLoaded", () => {
 });
   </script>
 <!-- end loading cards -->
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+  const formWrapper = document.querySelector(".form-wrapper");
+  
+  if (formWrapper && formWrapper.querySelector(".form-thank-you-wrapper")) {
+    const headline = formWrapper.querySelector(".headline");
+    if (headline) {
+      headline.remove();
+    }
+  }
+});
 
+</script>
 	<script src="js/main.js"></script>
 </body>
 </html>
