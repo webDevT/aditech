@@ -763,15 +763,20 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 <!-- end loading cards -->
 <script>
-	document.addEventListener("DOMContentLoaded", function () {
-  const formWrapper = document.querySelector(".form-wrapper");
-  
-  if (formWrapper && formWrapper.querySelector(".form-thank-you-wrapper")) {
-    const headline = formWrapper.querySelector(".headline");
-    if (headline) {
-      headline.remove();
-    }
-  }
+document.addEventListener("DOMContentLoaded", function () {
+const submitButton = document.querySelector("button[type='submit']");
+const formWrapper = document.querySelector(".form-wrapper");
+
+
+
+if (submitButton && formWrapper) {
+submitButton.addEventListener("click", function () {
+const headline = formWrapper.querySelector(".headline");
+if (headline) {
+headline.remove();
+}
+});
+}
 });
 
 </script>

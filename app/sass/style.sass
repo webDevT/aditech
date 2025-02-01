@@ -2082,7 +2082,7 @@ form .freeform-file-dnd__input
 //start new styles
 .salary-location
     display: flex
-    justify-content: space-between
+    justify-content: flex-start
     font-size: 17px
 .dot
     margin-left: 8px
@@ -2164,13 +2164,13 @@ form .freeform-file-dnd__input
                 margin-right: 10px
         .sidebar-title 
             font-size: 18px
-.sidebar .sidebar-fixed .vacancie-details__buttons 
-    display: block
-    .button--whats-app
-        display: none
-    .button 
-        margin-left: auto 
-        margin-right: auto
+    .sidebar .sidebar-fixed .vacancie-details__buttons 
+        display: block
+        .button--whats-app
+            display: none
+        .button 
+            margin-left: auto 
+            margin-right: auto
 .sidebar .vacancie-details__buttons .button
     margin-top: 12px
     margin-bottom: 12px
@@ -2194,9 +2194,17 @@ form .row:last-child
     min-height: auto
     padding-bottom: 170px
     padding-top: 100px
-
+form 
+    padding-bottom: 80px
+    button.btn:hover 
+        background-color: #fff !important
+        color: $yellow !important
+    button.btn::before 
+        background: transparent !important
 
 @import "media"
+
+
 
 
 

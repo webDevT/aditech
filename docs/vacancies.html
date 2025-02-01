@@ -1276,192 +1276,248 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <!-- end city search -->
-
+<style>
+	
+</style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
 
 
 
-<script>
-	$(document).ready(function () {
-	  const $grid = $('#vacancies-container').isotope({
-		itemSelector: '.col-lg-4',
-		layoutMode: 'fitRows',
-	  });
-  
-	  document.addEventListener("DOMContentLoaded", function () {
-  // Сначала выполняем updateCategoryCounts, чтобы значения обновились
-  updateCategoryCounts();
-
-  // После этого сортируем элементы списка
-  sortList();
-});
-
-function updateCategoryCounts() {
-  $('.select-options li input[type="checkbox"]').each(function () {
-    const category = $(this).val();
-    const count = $grid.find(`[data-category*="${category}"]:not(.card-view-all)`).length;
-    $(this).closest('label').find('.category-count').text(`(${count})`);
-  });
-}
-
-function sortList() {
-  const list = document.getElementById("options-list");
-  const items = Array.from(list.children);
-
-  // Сортируем элементы: сначала с классом "selected", затем по убыванию значения "data-category-count"
-  items.sort((a, b) => {
-    const isSelectedA = a.classList.contains("selected") ? 1 : 0;
-    const isSelectedB = b.classList.contains("selected") ? 1 : 0;
-
-    // Сортировка по selected
-    if (isSelectedA !== isSelectedB) {
-      return isSelectedB - isSelectedA;
-    }
-
-    // Если оба или ни один не selected, сортируем по data-category-count
-    const countA = parseInt(a.getAttribute("data-category-count"), 10);
-    const countB = parseInt(b.getAttribute("data-category-count"), 10);
-    return countB - countA;
-  });
-
-  // Перерисовываем элементы в правильном порядке
-  items.forEach(item => list.appendChild(item));
-}
-
-	  function updateHeadlineAndVisibility() {
-		const visibleItems = $grid.data('isotope').filteredItems.filter(item => !$(item.element).hasClass('card-view-all')).length;
-		const $headline = $('.headline.headline--s');
-		const $cardViewAll = $('.card-view-all');
-  
-		if (visibleItems === 0) {
-		  $headline.html('<span class="headline-s-span">Oops, no open positions(</span>');
-		} else {
-		  $headline.html(
-			`<span class="headline-s-span">There’re </span><span>${visibleItems}</span> open positions`
-		  );
-		}
-  
-		$cardViewAll.show();
-	  }
-  
-	  function updateFilters() {
-		const searchText = $('.search-input').val().toLowerCase();
-		const city = $('.search-city').val().toLowerCase();
-  
-		let expertiseFilters = [];
-		if ($(window).width() < 768) {
-		  // Mobile expertise list active filter
-		  expertiseFilters = $('.mobile-expertise-list .expertise-item.active')
-			.map(function () {
-			  return $(this).text().trim();
-			})
-			.get();
-		} else {
-		  // Desktop custom-select active filters
-		  $('.custom-select input[type="checkbox"]:checked').each(function () {
-			expertiseFilters.push($(this).val());
-		  });
-		}
-  
-		$grid.isotope({
-		  filter: function () {
-			const $this = $(this);
-  
-			if ($this.hasClass('card-view-all')) {
-			  return true;
+	<script>
+		$(window).resize(function() {
+			$grid.isotope('layout');
+		});
+		$(document).ready(function () {
+			const $grid = $('#vacancies-container').isotope({
+				itemSelector: '.col-lg-4',
+				layoutMode: 'fitRows',
+			});
+		
+			document.addEventListener("DOMContentLoaded", function () {
+				updateCategoryCounts();
+				sortList();
+			});
+		
+			function updateCategoryCounts() {
+				$('.select-options li input[type="checkbox"]').each(function () {
+					const category = $(this).val();
+					const count = $grid.find(`[data-category*="${category}"]:not(.card-view-all)`).length;
+					$(this).closest('label').find('.category-count').text(`(${count})`);
+				});
 			}
-  
-			const text = $this.text() ? $this.text().toLowerCase() : '';
-			const location = $this.find('.location').text()
-			  ? $this.find('.location').text().toLowerCase()
-			  : '';
-			const category = $this.attr('data-category') || '';
-  
-			const matchesSearch = text.includes(searchText);
-			const matchesCity = location.includes(city);
-			const matchesExpertise = expertiseFilters.length === 0 || expertiseFilters.some(f => category.includes(f));
-  
-			return matchesSearch && matchesCity && matchesExpertise;
-		  }
+		
+			function sortList() {
+				const list = document.getElementById("options-list");
+				const items = Array.from(list.children);
+		
+				
+				items.sort((a, b) => {
+					const isSelectedA = a.classList.contains("selected") ? 1 : 0;
+					const isSelectedB = b.classList.contains("selected") ? 1 : 0;
+		
+				
+					if (isSelectedA !== isSelectedB) {
+						return isSelectedB - isSelectedA;
+					}
+		
+				
+					const countA = parseInt(a.getAttribute("data-category-count"), 10);
+					const countB = parseInt(b.getAttribute("data-category-count"), 10);
+					return countB - countA;
+				});
+		
+		
+				items.forEach(item => list.appendChild(item));
+			}
+		
+			function updateHeadlineAndVisibility() {
+				const visibleItems = $grid.data('isotope').filteredItems.filter(item => !$(item.element).hasClass('card-view-all')).length;
+				const $headline = $('.headline.headline--s');
+				const $cardViewAll = $('.card-view-all');
+		
+				if (visibleItems === 0) {
+					$headline.html('<span class="headline-s-span">Oops, no open positions(</span>');
+				} else {
+					$headline.html(
+						`<span class="headline-s-span">There’re </span><span>${visibleItems}</span> open positions`
+					);
+				}
+		
+				$cardViewAll.show();
+			}
+		
+			function updateFilters() {
+				const searchText = $('.search-input').val().toLowerCase();
+				const city = $('.search-city').val().toLowerCase();
+		
+				let expertiseFilters = [];
+				if ($(window).width() < 768) {
+					// Mobile expertise list active filter
+					expertiseFilters = $('.mobile-expertise-list .expertise-item.active')
+						.map(function () {
+							return $(this).text().trim();
+						})
+						.get();
+				} else {
+					// Desktop custom-select active filters
+					$('.custom-select input[type="checkbox"]:checked').each(function () {
+						expertiseFilters.push($(this).val());
+					});
+				}
+		
+				$grid.isotope({
+					filter: function () {
+						const $this = $(this);
+		
+						if ($this.hasClass('card-view-all')) {
+							return true;
+						}
+		
+						const text = $this.text() ? $this.text().toLowerCase() : '';
+						const location = $this.find('.location').text()
+							? $this.find('.location').text().toLowerCase()
+							: '';
+						const category = $this.attr('data-category') || '';
+		
+						const matchesSearch = text.includes(searchText);
+						const matchesCity = location.includes(city);
+						const matchesExpertise = expertiseFilters.length === 0 || expertiseFilters.some(f => category.includes(f));
+		
+						return matchesSearch && matchesCity && matchesExpertise;
+					}
+				});
+		
+				updateCategoryCounts();
+				updateHeadlineAndVisibility();
+			}
+		
+			function initMobileExpertiseList() {
+				const expertiseCounts = {}; 
+		
+			
+				$grid.find('.col-lg-4').each(function () {
+					const category = $(this).attr('data-category');
+					if (category) {
+						expertiseCounts[category] = (expertiseCounts[category] || 0) + 1;
+					}
+				});
+		
+			
+				$('.mobile-expertise-list .expertise-item').each(function () {
+					const category = $(this).text().trim();
+					if (category !== 'All' && expertiseCounts[category] !== undefined) {
+						$(this).attr('data-category-count', expertiseCounts[category]);
+					} else {
+						$(this).attr('data-category-count', 0); 
+					}
+				});
+		
+			
+				const allItem = $('.mobile-expertise-list .expertise-item').filter(function () {
+					return $(this).text().trim() === 'All';
+				}).first();
+		
+			
+				const sortedItems = $('.mobile-expertise-list .expertise-item').not(allItem).sort(function (a, b) {
+					const countA = parseInt($(a).attr('data-category-count'), 10);
+					const countB = parseInt($(b).attr('data-category-count'), 10);
+					return countB - countA; 
+				});
+		
+				
+				$('.mobile-expertise-list').html(allItem);
+				sortedItems.each(function () {
+					$('.mobile-expertise-list').append($(this));
+				});
+		
+				
+				$('.mobile-expertise-list .expertise-item').on('click', function () {
+					
+					if ($(this).text().trim() === 'All') {
+						$('.mobile-expertise-list .expertise-item').removeClass('active');
+						$(this).addClass('active');
+						$grid.isotope({ filter: '*' }); 
+						updateHeadlineAndVisibility(); 
+					} else {
+						$('.mobile-expertise-list .expertise-item').removeClass('active');
+						$(this).addClass('active');
+						updateFilters();  
+					}
+				});
+			}
+		
+			function toggleFilterView() {
+				if ($(window).width() < 768) {
+					$('.custom-select').hide();
+					$('.mobile-expertise-list').show();
+				} else {
+					$('.mobile-expertise-list').hide();
+					$('.custom-select').show();
+				}
+			}
+		
+			// Initial setup
+			toggleFilterView();
+			initMobileExpertiseList();
+			updateCategoryCounts();
+			updateHeadlineAndVisibility();
+		
+			// Reapply filters on resize
+			$(window).on('resize', function () {
+				toggleFilterView();
+				updateFilters();
+			});
+		
+			// Event handlers for desktop filters
+			$('.custom-select input[type="checkbox"]').on('change', updateFilters);
+			$('.search-input').on('keyup', updateFilters);
+			$('.search-city').on('keyup', updateFilters);
+		
+			$('.city-list').on('click', '.city-item', function () {
+				const selectedCity = $(this).text();
+				$('.search-city').val(selectedCity);
+				$('.city-list').hide();
+				updateFilters();
+			});
+		
+			$('.search-city').on('focus', function () {
+				$('.city-list').show();
+			});
+		
+			$(document).on('click', function (e) {
+				if (!$(e.target).closest('.search-container').length) {
+					$('.city-list').hide();
+				}
+			});
+		
+			$('.clear').on('click', function () {
+				$('.custom-select input[type="checkbox"]').prop('checked', false);
+				$('.search-input, .search-city').val('');
+				$('.mobile-expertise-list .expertise-item').removeClass('active');
+				$('.mobile-expertise-list .expertise-item:first-child').addClass('active'); // Reset to "All"
+				$grid.isotope({ filter: '*' });
+				updateCategoryCounts();
+				updateHeadlineAndVisibility();
+			});
 		});
+		</script>
+		
   
-		updateCategoryCounts();
-		updateHeadlineAndVisibility();
-	  }
-  
-	  function initMobileExpertiseList() {
-		$('.mobile-expertise-list .expertise-item').on('click', function () {
-		  $('.mobile-expertise-list .expertise-item').removeClass('active');
-		  $(this).addClass('active');
-		  updateFilters();
-		});
-	  }
-  
-	  function toggleFilterView() {
-		if ($(window).width() < 768) {
-		  $('.custom-select').hide();
-		  $('.mobile-expertise-list').show();
-		} else {
-		  $('.mobile-expertise-list').hide();
-		  $('.custom-select').show();
-		}
-	  }
-  
-	  // Initial setup
-	  toggleFilterView();
-	  initMobileExpertiseList();
-	  updateCategoryCounts();
-	  updateHeadlineAndVisibility();
-  
-	  // Reapply filters on resize
-	  $(window).on('resize', function () {
-		toggleFilterView();
-		updateFilters();
-	  });
-  
-	  // Event handlers for desktop filters
-	  $('.custom-select input[type="checkbox"]').on('change', updateFilters);
-	  $('.search-input').on('keyup', updateFilters);
-	  $('.search-city').on('keyup', updateFilters);
-  
-	  $('.city-list').on('click', '.city-item', function () {
-		const selectedCity = $(this).text();
-		$('.search-city').val(selectedCity);
-		$('.city-list').hide();
-		updateFilters();
-	  });
-  
-	  $('.search-city').on('focus', function () {
-		$('.city-list').show();
-	  });
-  
-	  $(document).on('click', function (e) {
-		if (!$(e.target).closest('.search-container').length) {
-		  $('.city-list').hide();
-		}
-	  });
-  
-	  $('.clear').on('click', function () {
-		$('.custom-select input[type="checkbox"]').prop('checked', false);
-		$('.search-input, .search-city').val('');
-		$('.mobile-expertise-list .expertise-item').removeClass('active');
-		$('.mobile-expertise-list .expertise-item:first-child').addClass('active'); // Reset to "All"
-		$grid.isotope({ filter: '*' });
-		updateCategoryCounts();
-		updateHeadlineAndVisibility();
-	  });
-	});
-  </script>
-  
-  
-	
+
 	
 	
 
 <!-- start loading cards -->
 <script>
+	$(window).on('resize', function () {
+  toggleFilterView();
+  updateFilters();
+  $grid.isotope('layout');  // Обновляем layout после изменения размера
+  
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const cards = Array.from(document.querySelectorAll(".col-lg-4.hidden")); 
   const loader = document.getElementById("loader"); 
@@ -1472,6 +1528,13 @@ document.addEventListener("DOMContentLoaded", () => {
     itemSelector: '.col-lg-4',
     layoutMode: 'fitRows'
   });
+
+
+  $(window).on('resize', function () {
+  toggleFilterView();
+  updateFilters();
+  $grid.isotope('layout');  // Обновляем layout после изменения размера
+});
 
   function showMoreCards() {
     loader.classList.remove("hidden");
